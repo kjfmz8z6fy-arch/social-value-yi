@@ -823,7 +823,7 @@ body.admin-mode .admin-toolbar{display:block}
             <div style="font-size:1.4rem;flex-shrink:0;margin-top:.1rem">⚔️</div>
             <div>
               <div style="font-weight:700;font-size:.92rem">模型库</div>
-              <div style="font-size:.82rem;color:#666;margin-top:.15rem">111个思维模型，按💎价值创造 / 🗣️沟通表达 / 🤝信任建设 / ⚡冲突化解分类。点击看7段式详情，⭐收藏常用地。</div>
+              <div style="font-size:.82rem;color:#666;margin-top:.15rem">137个思维模型，按💎价值创造 / 🗣️沟通表达 / 🤝信任建设 / ⚡冲突化解分类。点击看7段式详情，⭐收藏常用地。</div>
             </div>
           </div>
 
@@ -892,11 +892,11 @@ body.admin-mode .admin-toolbar{display:block}
         </div>
 
         <div style="font-size:.88rem;color:#555;line-height:2">
-          <div>① <b>做测评</b> → 完成核心画像或MBTI，AI自动记住你的性格</div>
-          <div>② <b>问问题</b> → 「分析」Tab输入困惑，规则分析秒出，AI智囊深挖</div>
+          <div>① <b>做测评</b> → 完成核心画像/MBTI/大五等，AI自动记住你的性格</div>
+          <div>② <b>AI解读</b> → 测评结果页点击「生成AI行动清单」，一键获取个性化方案</div>
           <div>③ <b>量关系</b> → 跳转RVS评估，6维度给这段关系打分</div>
           <div>④ <b>测压力</b> → 跳转压力测试，找出你圈层的压力源</div>
-          <div>⑤ <b>问AI</b> → 带着评估结果回AI智囊，AI结合你的画像+数据给行动方案</div>
+          <div>⑤ <b>问AI</b> → 带着评估结果回AI智囊，AI结合画像+测评+评估数据给行动方案</div>
           <div>⑥ <b>存记录</b> → 保存所有结果，下次对比变化，持续迭代</div>
         </div>
 
@@ -910,9 +910,9 @@ body.admin-mode .admin-toolbar{display:block}
       <div class="guide-section">
         <div class="guide-qna"><div class="q">Q：数据安全吗？换手机能同步吗？</div><div class="a">A：本地优先+云端备份。换设备登录同一账号自动同步，也可导出备份或用恢复码迁移。</div></div>
         <div class="guide-qna"><div class="q">Q：AI智囊要配置吗？收费吗？</div><div class="a">A：不用配置，内置AI开箱即用，免费。想用自己的Key也可以，在「⚙ AI设置」切换。</div></div>
-        <div class="guide-qna"><div class="q">Q：忘了密码怎么办？</div><div class="a">A：当前不支持找回，请牢记密码。实在忘了只能注册新账号。</div></div>
+        <div class="guide-qna"><div class="q">Q：忘了密码怎么办？</div><div class="a">A：当前不支持找回，请牢记密码。实在忘了只能注册新账号。更多帮助请进入系统后点击「❓ 帮助」Tab。</div></div>
         <div class="guide-qna"><div class="q">Q：规则分析和AI智囊有什么区别？</div><div class="a">A：规则分析离线秒出，固定格式报告；AI智囊联网深度对话，融入你的性格数据，建议更个性化。先用规则定位，再用AI深挖。</div></div>
-        <div class="guide-qna"><div class="q">Q：测评数据有什么用？</div><div class="a">A：自动融入AI智囊分析。AI知道你的性格特征后，建议会更有针对性，不再泛泛而谈。</div></div>
+        <div class="guide-qna"><div class="q">Q：测评数据有什么用？</div><div class="a">A：自动融入AI智囊分析。测评结果页还有「生成AI行动清单」按钮，可一键生成个性化行动方案。</div></div>
         <div class="guide-qna"><div class="q">Q：别人能看到我的数据吗？</div><div class="a">A：不能。数据按账号隔离，别人打开链接看到的是登录页。你的数据只在你设备上。</div></div>
       </div>
     </div>
@@ -1030,7 +1030,7 @@ body.admin-mode .admin-toolbar{display:block}
     <button class="tab-btn" data-tab="pressure">🔥 压力测试</button>
     <button class="tab-btn" data-tab="fav">⭐ 收藏夹</button>
     <button class="tab-btn" data-tab="personality">🧬 性格</button>
-    <button class="tab-btn" data-tab="guide">📖 使用指南</button>
+    <button class="tab-btn" data-tab="guide">❓ 帮助</button>
   </nav>
 
   <!-- Tab Panes -->
@@ -1067,7 +1067,7 @@ body.admin-mode .admin-toolbar{display:block}
       <div class="card" style="padding:.8rem">
         <div class="ai-chat-box">
           <div class="ai-chat-msgs" id="aiMsgs">
-            <div class="ai-msg bot">👋 我是AI智囊，基于111个思维模型深度分析社交问题。请先点击「⚙ API」配置接口，然后向我提问。</div>
+            <div class="ai-msg bot">👋 我是AI智囊，基于137个思维模型深度分析社交问题。请先点击「⚙ API」配置接口，然后向我提问。</div>
           </div>
           <div class="ai-chat-input">
             <textarea id="aiInput" placeholder="输入你的问题，例如：如何让客户从观望变成主动合作？" rows="1"></textarea>
@@ -1242,19 +1242,22 @@ body.admin-mode .admin-toolbar{display:block}
   </div>
 
     <div class="tab-pane" id="guidePane">
-    <div class="card" style="text-align:center;padding:2rem 1.5rem">
-      <div style="font-size:3rem;margin-bottom:1rem">📖</div>
-      <div class="card-title" style="font-size:1.2rem;margin-bottom:.5rem">使用指南</div>
-      <p style="color:#4a6580;font-size:.92rem;line-height:1.6;margin-bottom:1.5rem">查看完整的系统功能介绍、操作步骤和常见问题</p>
-      <button class="guide-btn" id="openGuideFromApp" style="font-size:1rem;padding:12px 32px">📖 打开使用指南</button>
-      <div style="margin-top:1.5rem;text-align:left">
-        <div style="font-size:.85rem;color:#6c8eaa;margin-bottom:.5rem;font-weight:600">快速导航</div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
-          <div onclick="switchTab('analyze')" style="background:#f0f5ff;border-radius:10px;padding:10px;cursor:pointer;touch-action:manipulation"><div style="font-size:.9rem;font-weight:700;color:var(--primary)">🎯 增强分析</div><div style="font-size:.78rem;color:#6c8eaa">输入问题→匹配模型</div></div>
-          <div onclick="switchTab('library')" style="background:#f0f5ff;border-radius:10px;padding:10px;cursor:pointer;touch-action:manipulation"><div style="font-size:.9rem;font-weight:700;color:var(--primary)">📚 思维模型库</div><div style="font-size:.78rem;color:#6c8eaa">101+个模型浏览收藏</div></div>
-          <div onclick="switchTab('rvs')" style="background:#f0f5ff;border-radius:10px;padding:10px;cursor:pointer;touch-action:manipulation"><div style="font-size:.9rem;font-weight:700;color:var(--primary)">📊 RVS评估</div><div style="font-size:.78rem;color:#6c8eaa">6维度关系量化</div></div>
-          <div onclick="switchTab('pressure')" style="background:#f0f5ff;border-radius:10px;padding:10px;cursor:pointer;touch-action:manipulation"><div style="font-size:.9rem;font-weight:700;color:var(--primary)">🔥 压力测试</div><div style="font-size:.78rem;color:#6c8eaa">闭环压力溯源</div></div>
-        </div>
+    <div style="max-width:680px;margin:0 auto;padding:1rem">
+      <div style="text-align:center;margin-bottom:1.2rem">
+        <div style="font-size:2rem;margin-bottom:.3rem">❓</div>
+        <div style="font-size:1.2rem;font-weight:700;color:var(--primary)">帮助中心</div>
+        <div style="font-size:.82rem;color:#6c8eaa;margin-top:.2rem">常见问题 · 操作指南 · 故障排查</div>
+      </div>
+      <!-- Quick Nav -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:1.2rem">
+        <div onclick="switchTab('analyze')" style="background:#f0f5ff;border-radius:10px;padding:10px;cursor:pointer;touch-action:manipulation"><div style="font-size:.9rem;font-weight:700;color:var(--primary)">🎯 增强分析</div><div style="font-size:.78rem;color:#6c8eaa">输入问题→匹配模型</div></div>
+        <div onclick="switchTab('library')" style="background:#f0f5ff;border-radius:10px;padding:10px;cursor:pointer;touch-action:manipulation"><div style="font-size:.9rem;font-weight:700;color:var(--primary)">📚 思维模型库</div><div style="font-size:.78rem;color:#6c8eaa">137个模型浏览收藏</div></div>
+        <div onclick="switchTab('rvs')" style="background:#f0f5ff;border-radius:10px;padding:10px;cursor:pointer;touch-action:manipulation"><div style="font-size:.9rem;font-weight:700;color:var(--primary)">📊 RVS评估</div><div style="font-size:.78rem;color:#6c8eaa">6维度关系量化</div></div>
+        <div onclick="switchTab('pressure')" style="background:#f0f5ff;border-radius:10px;padding:10px;cursor:pointer;touch-action:manipulation"><div style="font-size:.9rem;font-weight:700;color:var(--primary)">🔥 压力测试</div><div style="font-size:.78rem;color:#6c8eaa">闭环压力溯源</div></div>
+      </div>
+      <div id="faqContent"></div>
+      <div style="text-align:center;margin-top:1rem">
+        <button class="guide-btn" id="openGuideFromApp" style="font-size:.88rem;padding:8px 24px">📖 查看完整使用指南</button>
       </div>
     </div>
   </div>
@@ -2890,6 +2893,14 @@ function renderPsychResultPage(tid,result,c){
   h+='<div style="display:flex;gap:.6rem;justify-content:center;margin-top:1.2rem">';
   h+='<button onclick="renderPsychCatalog(document.getElementById(\'personalityContent\'))" style="padding:.6rem 1.2rem;border-radius:2rem;border:1px solid #e2dcd0;background:#fff;cursor:pointer;touch-action:manipulation;font-size:.82rem">← 测评中心</button>';
   h+='<button onclick="psychStartTest(\''+tid+'\')" style="padding:.6rem 1.2rem;border-radius:2rem;border:1px solid var(--primary);background:transparent;color:var(--primary);cursor:pointer;touch-action:manipulation;font-size:.82rem">🔄 重新测评</button>';
+  // AI智囊联动
+  var aiPresets={core:'核心性格画像',mbti:'MBTI性格类型',big5:'大五人格',holland:'霍兰德兴趣',circle_style:'圈层风格',social_energy:'社交能量'};
+  var testLabel=aiPresets[tid]||tid;
+  h+='<div style="background:linear-gradient(135deg,#1a1a2e,#2d2d44);border-radius:1rem;padding:1rem;margin-top:1rem">';
+  h+='<div style="font-weight:700;font-size:.9rem;color:#ffd966;margin-bottom:.5rem">🤖 AI智囊解读</div>';
+  h+='<div style="font-size:.82rem;color:#aab;margin-bottom:.8rem;line-height:1.4">让AI智囊基于你的'+testLabel+'结果，生成个性化的社交策略和可执行的行动清单</div>';
+  h+='<button onclick="aiAnalyzeTestResult(\''+tid+'\')" style="background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border:none;padding:.6rem 1.2rem;border-radius:2rem;font-size:.85rem;font-weight:600;cursor:pointer;touch-action:manipulation;width:100%">🎯 生成AI行动清单</button>';
+  h+='</div>';
   h+='</div>';
   c.innerHTML=h;
 }
@@ -3531,7 +3542,7 @@ var PRESSURE_ADVICE=[
 ];
 
 var SUPER_ADMIN_ID='yangyong';
-var CONFIG_VERSION='6.10';var _GUIDE_VER='6.10';var VER='6.10';(function(){var p=new URLSearchParams(window.location.search);if(p.get('v')!==VER){window.location.href=window.location.pathname+'?v='+VER;}})();;
+var CONFIG_VERSION='6.11';var _GUIDE_VER='6.11';var VER='6.11';(function(){var p=new URLSearchParams(window.location.search);if(p.get('v')!==VER){window.location.href=window.location.pathname+'?v='+VER;}})();;
 var CLOUD_SYNC_URL='https://api.yangyong.asia';
 var _cloudSyncTimer=null;
 function isSuperAdmin(){return state.isAdmin&&getCurUserId()===SUPER_ADMIN_ID;}
@@ -5335,10 +5346,10 @@ function buildAiSystemPrompt(query){
   var networkDesc=buildModelNetworkDesc(topModels);
   var kb='你是「社交值奕系统」的AI智囊，一位深度理解本系统方法论的社交策略顾问。\n\n'
     +'## 你的身份与能力边界\n'
-    +'你是「价值值奕系统1.0」的深度使用者，完全理解系统内置的111个思维模型、RVS关系值评估体系、压力测试工具和圈层闭环理论。你的所有分析必须基于本系统的模型和框架，而非泛泛而谈的社交建议。\n\n'
+    +'你是「价值值奕系统1.0」的深度使用者，完全理解系统内置的137个思维模型、RVS关系值评估体系、压力测试工具和圈层闭环理论。你的所有分析必须基于本系统的模型和框架，而非泛泛而谈的社交建议。\n\n'
     +(state._activeModelContext?'## ⚡ 用户指定核心模型（最高优先级）\n\n用户从模型库中专门选择了【'+state._activeModelContext.name+'】作为分析核心。你的回答必须以这个模型为主轴展开，而不是泛泛推荐其他模型。具体要求：\n1. 开头直接点明【'+state._activeModelContext.name+'】为什么适合解决用户的问题\n2. 用这个模型的三步实战路径给出具体行动方案\n3. 指出使用这个模型容易踩的坑\n4. 如果需要配合其他模型，说明配合逻辑（主攻+侧翼）\n\n### 【'+state._activeModelContext.name+'】完整信息\n领域：'+(catMap[state._activeModelContext.cat]||state._activeModelContext.cat)+'\n'+(state._activeModelContext.tags&&state._activeModelContext.tags.length?'标签：'+state._activeModelContext.tags.join('/')+'\n':'')+'一句话精髓：'+state._activeModelContext.essence+'\n核心洞察：'+state._activeModelContext.insight+'\n'+(state._activeModelContext.inspiration?'灵感启发：'+state._activeModelContext.inspiration+'\n':'')+(state._activeModelContext.signals&&state._activeModelContext.signals.length?'适用信号：'+state._activeModelContext.signals.join('；')+'\n':'')+(state._activeModelContext.steps&&state._activeModelContext.steps.length?'三步实战：'+state._activeModelContext.steps.map(function(s,i){return(i+1)+')'+s.label+'——'+s.action}).join('；')+'\n':'')+(state._activeModelContext.pitfalls&&state._activeModelContext.pitfalls.length?'常见误区：'+state._activeModelContext.pitfalls.join('；')+'\n':'')+(state._activeModelContext.case?'实战案例：'+state._activeModelContext.case+'\n':'')+'\n':'')+'## 系统核心框架\n'
     +'- **四大领域**：价值创造 / 沟通表达 / 信任建设 / 冲突化解\n'
-    +'- **111个思维模型**：每个模型包含灵感、洞察、适用信号、三步实战、误区、案例、关联模型网络\n'
+    +'- **137个思维模型**：每个模型包含灵感、洞察、适用信号、三步实战、误区、案例、关联模型网络\n'
     +'- **RVS评估**：6维度（信任稳固/价值互惠/互动深度/情感支持/可调用性/闭环完成）量化一段关系\n'
     +'- **压力测试**：检测关系中的压力源，从价值/沟通/信任/冲突/闭环/综合6个维度\n'
     +'- **圈层闭环**：核心圈→紧密圈→协作圈→外围圈→弱连接\n'
@@ -5563,7 +5574,7 @@ function loadAiChat(){
   var u=getUserData(uid);
   _aiChatHistory=(u&&u.aiChatHistory)?u.aiChatHistory.slice(-50):[];
   var box=document.getElementById('aiMsgs');
-  box.innerHTML='<div class="ai-msg bot">👋 我是AI智囊，基于111个思维模型深度分析社交问题。内置AI已就绪，随时向我提问！</div>';
+  box.innerHTML='<div class="ai-msg bot">👋 我是AI智囊，基于137个思维模型深度分析社交问题。内置AI已就绪，随时向我提问！</div>';
   for(var i=0;i<_aiChatHistory.length;i++){appendAiMsg(_aiChatHistory[i].role,_aiChatHistory[i].content)}
   updateAiStatus();
 }
@@ -5662,6 +5673,99 @@ window.importAllData=importAllData;
 window.copyRecoveryCode=function(){var code=generateRecoveryCode();if(!code){alert('\u5f53\u524d\u65e0\u53ef\u6062\u590d\u7684\u6570\u636e');return}var ta=document.createElement('textarea');ta.value=code;document.body.appendChild(ta);ta.select();document.execCommand('copy');ta.remove();alert('\u2705 \u6062\u590d\u7801\u5df2\u590d\u5236\uff01\n\n\u5728\u65b0\u7248\u672c\u94fe\u63a5\u7684\u767b\u5f55\u9875\u70b9\u300c\u8fc1\u79fb\u65e7\u7248\u6570\u636e\u300d\u2192\u7c98\u8d34\u6062\u590d\u7801\u5373\u53ef');};
 
 /* ========== MAIN INIT ========== */
+
+var FAQ_DATA=[
+  {cat:'账号与数据',icon:'🔐',items:[
+    {q:'换了手机/电脑，数据还在吗？',a:'在的！本系统采用本地优先+云端备份架构。在新设备上用原账号密码登录即可自动同步云端数据。确保你在旧设备上已登录并触发过云同步（数据修改后3秒自动上传）。'},
+    {q:'登录时提示"用户不存在"怎么办？',a:'如果之前在另一台设备注册过，可能是新设备还没有本地缓存。点击登录后系统会自动从云端恢复数据。如果仍然失败，确认用户ID拼写是否正确（区分大小写）。'},
+    {q:'忘记密码怎么办？',a:'目前系统不支持密码找回（数据安全考虑）。建议：①回忆密码组合 ②如果绑定了恢复码，可以用恢复码迁移数据到新账号 ③实在想不起来只能注册新账号重新开始。'},
+    {q:'恢复码怎么用？',a:'注册成功后系统会自动生成恢复码。在登录页面点击"恢复数据"，输入恢复码即可在新设备上恢复账号数据。请务必保存恢复码到安全位置！'},
+    {q:'数据安全吗？别人能看到我的数据吗？',a:'绝对安全。①数据按账号隔离，每个用户只能访问自己的数据 ②密码经SHA-256加密存储，连系统管理员都无法看到明文密码 ③云端传输使用HTTPS加密 ④别人打开同一链接看到的是登录页，无法访问你的数据。'},
+    {q:'如何手动备份/导出数据？',a:'方法一：点击页面底部"📤 全量备份"按钮（管理员可见）；方法二：在设置中导出JSON数据文件；方法三：记录恢复码作为应急恢复手段。'}
+  ]},
+  {cat:'功能使用',icon:'🎯',items:[
+    {q:'规则分析和AI智囊有什么区别？',a:'规则分析：离线秒出，基于关键词匹配模型，给出固定格式的分析报告。AI智囊：联网深度对话，能融入你的性格数据、测评结果、评估记录，给出个性化建议。推荐流程：先用规则分析快速定位，再用AI智囊深挖。'},
+    {q:'测评做完后怎么用？',a:'每份测评结果页底部都有「🎯 生成AI行动清单」按钮，点击后AI会基于你的测评数据自动生成个性化行动方案。也可以在AI智囊中随时提问，AI会参考你的测评结果。'},
+    {q:'RVS评估和压力测试怎么配合使用？',a:'推荐流程：①先做RVS评估，量化一段关系的6个维度 ②根据评估结果的弱项维度，跳转做压力测试深入排查 ③带着两个结果去AI智囊，获取基于数据的行动方案 ④执行方案后定期复评，追踪变化。'},
+    {q:'模型库里的模型怎么用？',a:'两种用法：①浏览学习：点击任意模型卡片查看完整的灵感、洞察、三步实战、案例 ②AI深度分析：在模型详情页点击"AI深度分析"按钮，AI会以该模型为核心给出针对性方案。模型之间有关联网络，可以组合使用。'},
+    {q:'子分类筛选怎么用？',a:'点击主分类（如"价值创造"）后，下方会出现子分类栏（如"价值洞察""资源杠杆"等），点击子分类可进一步缩小范围。共18个子分类覆盖137个模型。'},
+    {q:'收藏的模型在哪里看？',a:'点击底部"⭐ 收藏"Tab查看所有收藏的模型。在模型卡片上点击☆即可收藏，再次点击⭐取消收藏。'}
+  ]},
+  {cat:'AI智囊',icon:'🤖',items:[
+    {q:'AI智囊要额外配置吗？',a:'不需要！系统内置AI已就绪，开箱即用，免费。如果你有自己的API Key，也可以在"⚙ AI设置"中切换为自定义模式。'},
+    {q:'AI回答太慢或报错怎么办？',a:'可能原因：①网络不稳定（AI需要联网）②API服务暂时过载 ③自定义Key余额不足。建议：刷新页面重试，或切换到内置AI模式。如果持续报错，检查网络连接。'},
+    {q:'AI给出的建议靠谱吗？',a:'AI基于系统内置的137个思维模型分析，所有引用的模型都是真实存在的。但AI输出有随机性，重要决策请结合自身判断。系统会阻止AI编造不存在的模型。'},
+    {q:'如何在AI智囊中指定某个模型？',a:'两种方式：①在模型详情页点击"AI深度分析"按钮 ②在AI对话框中直接提到模型名称（如"用互惠原理分析我的情况"），AI会自动以该模型为核心展开。'}
+  ]},
+  {cat:'云同步问题',icon:'☁️',items:[
+    {q:'云同步状态怎么看？',a:'页面右上角有云同步状态标识（☁️ 刚刚/☁️ X分钟前）。如果是"☁️ 未同步"，说明最近数据修改还未上传，请检查网络连接。'},
+    {q:'多设备同时使用会冲突吗？',a:'系统采用"最后修改优先"策略。如果两台设备同时修改了同一条记录，后修改的会覆盖先修改的。建议不要同时在多台设备操作同一功能。'},
+    {q:'国内移动网络访问慢怎么办？',a:'云同步服务部署在Cloudflare上，部分地区移动网络可能存在限速。建议：①切换到WiFi环境 ②稍后重试 ③如持续不稳定，可先在本地操作，待网络恢复后数据会自动同步。'}
+  ]}
+];
+function renderFaqPage(){
+  var c=document.getElementById('faqContent');if(!c)return;
+  var h='';
+  for(var i=0;i<FAQ_DATA.length;i++){
+    var cat=FAQ_DATA[i];
+    h+='<div style="margin-bottom:1.2rem">';
+    h+='<div style="font-weight:700;font-size:.95rem;color:var(--primary);margin-bottom:.6rem;display:flex;align-items:center;gap:.4rem">'+cat.icon+' '+cat.cat+'</div>';
+    for(var j=0;j<cat.items.length;j++){
+      var item=cat.items[j];
+      h+='<div style="background:#f8f9fa;border-radius:.8rem;margin-bottom:.5rem;overflow:hidden;border:1px solid #e2dcd0">';
+      h+='<div onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display===\'none\'?\'block\':\'none\';this.querySelector(\'.faq-arrow\').textContent=this.nextElementSibling.style.display===\'none\'?\'▶\':\'▼\'" style="padding:.7rem .9rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;touch-action:manipulation">';
+      h+='<span style="font-weight:600;font-size:.88rem;color:#333">'+item.q+'</span>';
+      h+='<span class="faq-arrow" style="font-size:.7rem;color:#aaa;flex-shrink:0;margin-left:.5rem">▶</span>';
+      h+='</div>';
+      h+='<div style="display:none;padding:0 .9rem .7rem;font-size:.82rem;color:#555;line-height:1.6">'+item.a+'</div>';
+      h+='</div>';
+    }
+    h+='</div>';
+  }
+  h+='<div style="background:linear-gradient(135deg,#1a1a2e,#2d2d44);border-radius:1rem;padding:1.2rem;text-align:center;margin-top:1rem">';
+  h+='<div style="font-size:1.1rem;margin-bottom:.5rem">🛟</div>';
+  h+='<div style="font-size:.95rem;font-weight:700;color:#ffd966;margin-bottom:.3rem">没找到答案？</div>';
+  h+='<div style="font-size:.82rem;color:#aab;line-height:1.5">以上内容仍未解决你的问题？<br>请尝试刷新页面或清除浏览器缓存后重新登录。<br>如问题持续，可通过AI智囊描述问题获取帮助。</div>';
+  h+='</div>';
+  c.innerHTML=h;
+}
+function aiAnalyzeTestResult(testId){
+  var pr=getPsychResults();var result=pr[testId];if(!result){switchTab('analyze');return;}
+  var t=PSYCH_TESTS.find(function(x){return x.id===testId});
+  var testInfo=t?t.name:testId;
+  var resultSummary='';
+  if(testId==='core'){var p=getPersonality();if(p&&p.dims){resultSummary='核心画像维度：';for(var k in p.dims)resultSummary+=k+':'+p.dims[k].pct+'% ';}}
+  else if(testId==='mbti'){resultSummary='MBTI类型：'+result.code+(result.typeInfo?' ('+result.typeInfo.name+')':'');}
+  else if(testId==='big5'){resultSummary='大五人格：';for(var i=0;i<BIG5_DIMS.length;i++){var d=result.dims[BIG5_DIMS[i].id];resultSummary+=BIG5_DIMS[i].name+':'+d.pct+'% ';}}
+  else if(testId==='holland'){resultSummary='霍兰德代码：'+result.code+' 前三类型：'+result.topThree.join('>')}
+  else if(testId==='circle_style'){var cs=CIRCLE_STYLES.find(function(x){return x.id===result.primary});resultSummary='圈层风格：'+(cs?cs.name:result.primary)+(cs?' - '+cs.desc:'')}
+  else if(testId==='social_energy'){resultSummary='社交能量：'+result.score+'% - '+result.desc}
+  var presetQ='我刚完成了'+testInfo+'测评，结果概要：'+resultSummary+'。请基于我的测评结果，分析我的社交核心特征，给出3条最具针对性的行动建议，每条建议要包含具体操作步骤和预期效果。';
+  state._testResultContext={testId:testId,result:result,summary:resultSummary};
+  aiJumpToAi(null,presetQ);
+}
+function checkDataIntegrity(){
+  var uid=getCurUserId();if(!uid)return{ok:true,msg:'未登录'};
+  var u=getUserData(uid);if(!u)return{ok:false,msg:'用户数据缺失'};
+  var issues=[];
+  if(!u.pwdHash)issues.push('密码哈希缺失');
+  if(!u.id)issues.push('用户ID缺失');
+  if(!u.favorites)u.favorites=[];
+  if(!u.rvsRecords)u.rvsRecords=[];
+  if(!u.pressureRecords)u.pressureRecords=[];
+  if(!u.analysisRecords)u.analysisRecords=[];
+  if(issues.length>0){saveUserData(uid,u);cloudUpload(true);}
+  return{ok:issues.length===0,msg:issues.length?issues.join('; '):'数据完整',fixed:issues.length>0};
+}
+function getCrossDomainRecs(model){
+  var recs=[];var catMap={value:'comm',comm:'value',trust:'conflict',conflict:'trust'};
+  var partner=catMap[model.cat];if(!partner)return recs;
+  var candidates=MODELS.filter(function(m){return m.cat===partner&&m.id!==model.id});
+  for(var i=0;i<candidates.length;i++){if(candidates[i].related&&candidates[i].related.indexOf(model.id)>=0){recs.push({model:candidates[i],reason:'直接关联模型'});}}
+  if(recs.length<2){var modelKw=(model.keywords||[]).concat(model.tags||[]);for(var i=0;i<candidates.length&&recs.length<3;i++){var cKw=(candidates[i].keywords||[]).concat(candidates[i].tags||[]);var overlap=0;for(var j=0;j<modelKw.length;j++){if(cKw.indexOf(modelKw[j])>=0)overlap++;}if(overlap>0)recs.push({model:candidates[i],reason:'关键词匹配('+overlap+'个重叠)'});}}
+  return recs.slice(0,3);
+}
+
 function initApp(){loadCustomModels();loadFavorites();renderQuickQs();renderCategoryBar();renderModelGrid('all');renderFavList();buildScenarioPool('general');renderRvsStep();renderPressureForm();function $(id){var el=document.getElementById(id);if(!el)console.warn('Missing element: #'+id);return el;}function listen(id,evt,fn){var el=$(id);if(el)el.addEventListener(evt,fn);}document.querySelectorAll('.tab-btn').forEach(function(btn){btn.addEventListener('click',function(){var tab=this.getAttribute('data-tab');switchTab(tab);})});listen('matchBtn','click',function(){var q=document.getElementById('matchInput').value;if(!q.trim())return;hideSuggest();document.getElementById('matchResult').innerHTML=smartAnalyze(q);});listen('matchInput','keydown',function(e){if(e.key==='Enter'){hideSuggest();document.getElementById('matchBtn').click()}else if(e.key==='Escape'){hideSuggest()}});listen('matchInput','input',function(){var q=this.value;var sug=getSuggestions(q);var dd=document.getElementById('suggestDropdown');if(dd){if(sug.length&&q.length>=2){dd.innerHTML=renderSuggestionDropdown(sug);dd.style.display='block'}else{dd.style.display='none'}}});listen('matchInput','blur',function(){setTimeout(hideSuggest,200)});listen('quickQs','click',function(e){var c=e.target.closest('[data-q]');if(!c)return;document.getElementById('matchInput').value=c.getAttribute('data-q');hideSuggest();document.getElementById('matchBtn').click()});document.addEventListener('click',function(e){var dd=document.getElementById('suggestDropdown');if(dd&&!e.target.closest('.smart-search-wrap')){dd.style.display='none'}});listen('categoryBar','click',function(e){var c=e.target.closest('[data-cat]');if(!c)return;state.currentCat=c.getAttribute('data-cat');state.currentSubcat='all';document.querySelectorAll('#categoryBar .filter-chip').forEach(function(x){x.classList.remove('active')});c.classList.add('active');renderSubcatBar();renderModelGrid(state.currentCat)});listen('subcatBar','click',function(e){var c=e.target.closest('[data-subcat]');if(!c)return;state.currentSubcat=c.getAttribute('data-subcat');document.querySelectorAll('#subcatBar .filter-chip').forEach(function(x){x.classList.remove('active')});c.classList.add('active');renderModelGrid(state.currentCat);});listen('libSearch','input',function(){renderModelGrid(state.currentCat)});listen('modelGrid','click',function(e){var eb=e.target.closest('.edit-badge');if(eb&&isSuperAdmin()){var card=eb.closest('[data-mid]');if(card){openEdit(parseInt(card.getAttribute('data-mid')));return}}var fb=e.target.closest('[data-fav]');if(fb){e.stopPropagation();toggleFav(parseInt(fb.getAttribute('data-fav')));renderModelGrid(state.currentCat);return}var card=e.target.closest('[data-mid]');if(card)showDetail(parseInt(card.getAttribute('data-mid')))});listen('favList','click',function(e){var d=e.target.closest('[data-fdel]');if(d){toggleFav(parseInt(d.getAttribute('data-fdel')));renderFavList();renderModelGrid(state.currentCat);return}var it=e.target.closest('[data-mid]');if(it)showDetail(parseInt(it.getAttribute('data-mid')))});listen('detailClose','click',hideDetail);listen('detailOverlay','click',function(e){if(e.target===this)hideDetail()});listen('detailPanel','click',function(e){var c=e.target.closest('[data-goto]');if(c)showDetail(parseInt(c.getAttribute('data-goto')))});listen('editSave','click',saveEdit);listen('editCancel','click',closeEdit);listen('editDelete','click',deleteModel);listen('editOverlay','click',function(e){if(e.target===this)closeEdit()});listen('editPanel','click',function(e){e.stopPropagation()});listen('rvsTargetName','input',function(){state.rvsTargetName=this.value});
     document.querySelectorAll('.scenario-chip').forEach(function(chip){chip.addEventListener('click',function(){document.querySelectorAll('.scenario-chip').forEach(function(c){c.classList.remove('active')});this.classList.add('active');var sc=this.dataset.scenario;buildScenarioPool(sc);state.rvsAnswers=new Array(24).fill(null);state.rvsStep=0;renderRvsStep();});});listen('rvsPrevBtn','click',function(){goToRvsStep(state.rvsStep-1)});listen('rvsNextBtn','click',function(){if(isRvsStepComplete())goToRvsStep(state.rvsStep+1);else document.getElementById('rvsStepError').innerText='请完成所有题目'});listen('rvsSubmitBtn','click',function(){if(state.rvsAnswers.every(function(a){return a!==null}))displayRvsResults();else document.getElementById('rvsStepError').innerText='请完成所有题目'});listen('rvsResetBtn','click',resetRvsAssessment);document.querySelectorAll('.rvs-step-item').forEach(function(item,idx){item.addEventListener('click',function(){goToRvsStep(idx)})});document.querySelectorAll('[data-ptscenario]').forEach(function(chip){chip.addEventListener('click',function(){document.querySelectorAll('[data-ptscenario]').forEach(function(c){c.classList.remove('active')});this.classList.add('active');state.ptScenario=this.dataset.ptscenario;state.pressureAnswers={};renderPressureForm();});});
     listen('pressureTestForm','click',handlePressureScaleClick);listen('pressureSubmitBtn','click',onPressureSubmit);listen('pressureResetBtn','click',resetPressureForm);listen('savePressureBtn','click',savePressureRecord);listen('saveRvsBtn','click',saveRvsRecord);listen('addModelBtn','click',function(){openEdit(null)});listen('matchResult','click',function(e){var sq=e.target.closest('[data-sq]');if(!sq)return;document.getElementById('matchInput').value=sq.getAttribute('data-q');document.getElementById('matchResult').innerHTML=smartAnalyze(sq.getAttribute('data-q'));window.scrollTo({top:0,behavior:'smooth'})});listen('suggestDropdown','click',function(e){var si=e.target.closest('[data-sq]');if(!si)return;document.getElementById('matchInput').value=si.getAttribute('data-sq');hideSuggest();document.getElementById('matchBtn').click()});
@@ -5717,7 +5821,7 @@ function getAllAccounts(){try{return JSON.parse(localStorage.getItem(ACCOUNTS_KE
 function saveAllAccounts(acc){safeSetItem(ACCOUNTS_KEY,JSON.stringify(acc))}
 function getUserData(uid){try{return JSON.parse(localStorage.getItem('svy_user_'+uid)||'null');}catch(e){return null;}}
 function saveUserData(uid,data){var existing=getUserData(uid)||{};for(var k in data){existing[k]=data[k]}safeSetItem('svy_user_'+uid,JSON.stringify(existing));autoBackupUserData(uid);if(uid===getCurUserId())scheduleCloudSync()}
-function autoBackupUserData(uid){try{var u=getUserData(uid);if(!u)return;var backup={v:CONFIG_VERSION,t:Date.now(),u:{}};backup.u[uid]={id:u.id,nick:u.nick,pwdHash:u.pwdHash,favorites:u.favorites||[],rvsRecords:u.rvsRecords||[],pressureRecords:u.pressureRecords||[],analysisRecords:u.analysisRecords||[],personality:u.personality||null,psychTests:u.psychTests||null,aiConfig:u.aiConfig||null,aiMode:u.aiMode||null};safeSetItem('svy_autobackup',JSON.stringify(backup))}catch(e){}}
+function autoBackupUserData(uid){try{var u=getUserData(uid);if(!u)return;var backup={v:CONFIG_VERSION,t:Date.now(),u:{}};backup.u[uid]={id:u.id,nick:u.nick,pwdHash:u.pwdHash,favorites:u.favorites||[],rvsRecords:u.rvsRecords||[],pressureRecords:u.pressureRecords||[],analysisRecords:u.analysisRecords||[],personality:u.personality||null,psychTests:u.psychTests||null,aiConfig:u.aiConfig||null,aiMode:u.aiMode||null,customModels:u.customModels||[],aiChatHistory:u.aiChatHistory||[]};safeSetItem('svy_autobackup',JSON.stringify(backup))}catch(e){}}
 function restoreFromAutoBackup(){try{var raw=localStorage.getItem('svy_autobackup');if(!raw)return false;var backup=JSON.parse(raw);if(!backup.u)return false;for(var uid in backup.u){var existing=getUserData(uid);if(!existing){var accounts=getAllAccounts();if(accounts.indexOf(uid)<0){accounts.push(uid);saveAllAccounts(accounts)}safeSetItem('svy_user_'+uid,JSON.stringify(backup.u[uid]))}}return true}catch(e){return false}}
 function getCurUserId(){return localStorage.getItem(CUR_USER_KEY)||'';}
 function setCurUserId(uid){localStorage.setItem(CUR_USER_KEY,uid);state.curUserId=uid;}
@@ -5725,12 +5829,12 @@ function getCurUser(){var uid=getCurUserId();return uid?getUserData(uid):null;}
 
 /* ========== CLOUD SYNC ========== */
 function getCloudAuth(){var uid=getCurUserId();var u=getUserData(uid);if(!uid||!u||!u.pwdHash)return null;return uid+':'+u.pwdHash}
-function cloudUpload(force){if(!CLOUD_SYNC_URL)return Promise.resolve(false);var uid=getCurUserId();var u=getUserData(uid);if(!uid||!u)return Promise.resolve(false);var dataStr=JSON.stringify(u);var lastHash=localStorage.getItem('svy_cloud_hash');var curHash=sha256(dataStr);if(!force&&lastHash===curHash)return Promise.resolve(true);var auth=getCloudAuth();if(!auth)return Promise.resolve(false);var uploadData={id:u.id,nick:u.nick,pwdHash:u.pwdHash,favorites:u.favorites||[],rvsRecords:u.rvsRecords||[],pressureRecords:u.pressureRecords||[],analysisRecords:u.analysisRecords||[],personality:u.personality||null,psychTests:u.psychTests||null,aiConfig:u.aiConfig||null,aiMode:u.aiMode||null};return fetch(CLOUD_SYNC_URL+'/data/'+uid,{method:'PUT',headers:{'Content-Type':'application/json','Authorization':auth},body:JSON.stringify({data:uploadData})}).then(function(r){return r.json()}).then(function(res){if(res.ok){localStorage.setItem('svy_cloud_hash',curHash);localStorage.setItem('svy_cloud_last',String(Date.now()));return true}return false}).catch(function(){return false})}
+function cloudUpload(force){if(!CLOUD_SYNC_URL)return Promise.resolve(false);var uid=getCurUserId();var u=getUserData(uid);if(!uid||!u)return Promise.resolve(false);var dataStr=JSON.stringify(u);var lastHash=localStorage.getItem('svy_cloud_hash');var curHash=sha256(dataStr);if(!force&&lastHash===curHash)return Promise.resolve(true);var auth=getCloudAuth();if(!auth)return Promise.resolve(false);var uploadData={id:u.id,nick:u.nick,pwdHash:u.pwdHash,favorites:u.favorites||[],rvsRecords:u.rvsRecords||[],pressureRecords:u.pressureRecords||[],analysisRecords:u.analysisRecords||[],personality:u.personality||null,psychTests:u.psychTests||null,aiConfig:u.aiConfig||null,aiMode:u.aiMode||null,customModels:u.customModels||[],aiChatHistory:u.aiChatHistory||[]};return fetch(CLOUD_SYNC_URL+'/data/'+uid,{method:'PUT',headers:{'Content-Type':'application/json','Authorization':auth},body:JSON.stringify({data:uploadData})}).then(function(r){return r.json()}).then(function(res){if(res.ok){localStorage.setItem('svy_cloud_hash',curHash);localStorage.setItem('svy_cloud_last',String(Date.now()));return true}return false}).catch(function(){return false})}
 function cloudDownload(userId,pwdHash){if(!CLOUD_SYNC_URL)return Promise.resolve(null);var auth=userId+':'+pwdHash;return fetch(CLOUD_SYNC_URL+'/data/'+userId,{method:'GET',headers:{'Authorization':auth}}).then(function(r){if(r.status===404)return null;return r.json()}).then(function(res){if(!res||!res.data)return null;return res.data.data||res.data}).catch(function(){return null})}
 function updateCloudSyncBadge(){try{var badge=document.getElementById('cloudSyncBadge');if(!badge)return;var s=cloudSyncStatus();if(s.synced){badge.textContent='☁️ '+s.ago;badge.style.display='inline'}else{badge.textContent='☁️ 未同步';badge.style.display='inline'}}catch(e){}}
 function cloudSyncStatus(){var last=localStorage.getItem('svy_cloud_last');if(!last)return{synced:false,time:null,ago:'未同步'};var diff=Date.now()-parseInt(last);return{synced:true,time:parseInt(last),ago:diff<60000?'刚刚':diff<3600000?Math.floor(diff/60000)+'分钟前':Math.floor(diff/3600000)+'小时前'}}
 function scheduleCloudSync(){if(!CLOUD_SYNC_URL)return;if(_cloudSyncTimer)clearTimeout(_cloudSyncTimer);_cloudSyncTimer=setTimeout(function(){cloudUpload(false)},3000)}
-function restoreFromCloud(userId,pwdHash){return cloudDownload(userId,pwdHash).then(function(cloudData){if(!cloudData)return false;var accounts=getAllAccounts();if(accounts.indexOf(userId)<0){accounts.push(userId);saveAllAccounts(accounts)}var localData=getUserData(userId)||{};for(var k in cloudData){if(cloudData[k]!==null&&cloudData[k]!==undefined){if(k==='rvsRecords'||k==='pressureRecords'||k==='analysisRecords'||k==='favorites'){localData[k]=(localData[k]||[]).concat(cloudData[k]||[]);var seen={};localData[k]=localData[k].filter(function(x){var key=JSON.stringify(x);if(seen[key])return false;seen[key]=true;return true})}else{localData[k]=cloudData[k]}}}if(cloudData.psychTests&&!localData.psychTests){localData.psychTests=cloudData.psychTests}else if(cloudData.psychTests&&localData.psychTests){for(var k in cloudData.psychTests){if(!localData.psychTests[k])localData.psychTests[k]=cloudData.psychTests[k]}}localData.pwdHash=pwdHash;safeSetItem('svy_user_'+userId,JSON.stringify(localData));return true}).catch(function(){return false})}
+function restoreFromCloud(userId,pwdHash){return cloudDownload(userId,pwdHash).then(function(cloudData){if(!cloudData)return false;var accounts=getAllAccounts();if(accounts.indexOf(userId)<0){accounts.push(userId);saveAllAccounts(accounts)}var localData=getUserData(userId)||{};for(var k in cloudData){if(cloudData[k]!==null&&cloudData[k]!==undefined){if(k==='rvsRecords'||k==='pressureRecords'||k==='analysisRecords'||k==='favorites'){localData[k]=(localData[k]||[]).concat(cloudData[k]||[]);var seen={};localData[k]=localData[k].filter(function(x){var key=JSON.stringify(x);if(seen[key])return false;seen[key]=true;return true})}else{localData[k]=cloudData[k]}}}if(cloudData.customModels&&!localData.customModels){localData.customModels=cloudData.customModels}if(cloudData.aiChatHistory&&(!localData.aiChatHistory||cloudData.aiChatHistory.length>(localData.aiChatHistory?localData.aiChatHistory.length:0))){localData.aiChatHistory=cloudData.aiChatHistory}if(cloudData.aiChatHistory&&(!localData.aiChatHistory||cloudData.aiChatHistory.length>(localData.aiChatHistory?localData.aiChatHistory.length:0))){localData.aiChatHistory=cloudData.aiChatHistory}if(cloudData.customModels&&!localData.customModels){localData.customModels=cloudData.customModels}if(cloudData.psychTests&&!localData.psychTests){localData.psychTests=cloudData.psychTests}else if(cloudData.psychTests&&localData.psychTests){for(var k in cloudData.psychTests){if(!localData.psychTests[k])localData.psychTests[k]=cloudData.psychTests[k]}}localData.pwdHash=pwdHash;safeSetItem('svy_user_'+userId,JSON.stringify(localData));return true}).catch(function(){return false})}
 
 function doRegister(userId,nick,pwd){
   if(!userId||userId.length<2)return{ok:false,msg:'用户ID至少2个字符'};

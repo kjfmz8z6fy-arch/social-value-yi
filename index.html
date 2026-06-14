@@ -1933,175 +1933,88 @@ var PERSONALITY_TAGS=[
   {id:'principled',icon:'🏛️',name:'原则坚守者',desc:'底线清晰、不因环境妥协',pair:6,cat:'sub',weights:{d3:.35,d5:.35,d4:.3}}
 ];
 var PERSONALITY_QUESTIONS=[
-  // === d1: 主动性 (15题) ===
+  // === d1: 社交驱动 (6题) ===
   {dim:'d1',text:'在陌生的社交场合，我会主动找人攀谈'},
-  {dim:'d1',text:'遇到潜在的合作机会，我会率先发出邀请'},
   {dim:'d1',text:'我更倾向于等待别人来找我，而非主动出击',reverse:true},
-  {dim:'d1',text:'我习惯主动分享自己的观点和想法，而非等别人来问'},
-  {dim:'d1',text:'在群体讨论中，我更愿意等别人先发言再表态',reverse:true},
-  {dim:'d1',text:'面对新的社交机会，我内心的第一反应是"值得一试"'},
-  {dim:'d1',text:'在一个新项目启动时，我通常会主动请缨担任核心角色'},
-  {dim:'d1',text:'遇到不认识但有价值的人脉，我会犹豫很久才去接触',reverse:true},
-  {dim:'d1',text:'我会主动向陌生人自我介绍，而不是等待引荐'},
-  {dim:'d1',text:'社交活动结束后，我通常会主动跟进新认识的人'},
-  {dim:'d1',text:'我更习惯回应他人的需求，而非主动发现需求',reverse:true},
-  {dim:'d1',text:'在一个新圈子里，我通常是第一个开口说话的人'},
-  {dim:'d1',text:'即使对方地位比我高，我也能自然地主动沟通'},
-  {dim:'d1',text:'我很少主动组织聚会或活动',reverse:true},
+  {dim:'d1',text:'遇到潜在的合作机会，我会率先发出邀请'},
   {dim:'d1',text:'我享受"破冰"的感觉，主动打破冷场让我有成就感'},
-  // === d2: 情感性 (15题) ===
+  {dim:'d1',text:'我很少主动组织聚会或活动',reverse:true},
+  {dim:'d1',text:'即使对方地位比我高，我也能自然地主动沟通'},
+  // === d2: 情绪韧性 (6题) ===
   {dim:'d2',text:'做重要决定时，我常常被内心的感受所牵引'},
   {dim:'d2',text:'我能冷静地将感情因素排除在决策之外',reverse:true},
-  {dim:'d2',text:'当朋友遇到困难时，我更倾向于先倾听和安慰，再分析问题'},
-  {dim:'d2',text:'我倾向于用逻辑而非直觉来判断一段关系',reverse:true},
-  {dim:'d2',text:'我会因为"感觉不对"而放弃一个看似合理的选择'},
   {dim:'d2',text:'别人一句无心的话可能让我在意很久'},
-  {dim:'d2',text:'我认为在社交中，情商比智商更重要'},
-  {dim:'d2',text:'我很难理解那些完全靠逻辑行事的人'},
-  {dim:'d2',text:'做社交决策时，我很难忽视自己的情绪感受'},
-  {dim:'d2',text:'即使理智告诉我应该合作，如果直觉不喜欢对方，我也很难行动'},
-  {dim:'d2',text:'我能清晰区分"感受"和"事实"',reverse:true},
-  {dim:'d2',text:'我会因为一段关系的情感价值而忽视明显的利益损失'},
+  {dim:'d2',text:'我会因为"感觉不对"而放弃一个看似合理的选择'},
   {dim:'d2',text:'我对社交场合中微妙的情绪变化非常敏感'},
-  {dim:'d2',text:'我认为数据和分析比直觉更可靠',reverse:true},
-  {dim:'d2',text:'被信任的人误解时，我的情绪会剧烈波动'},
-  // === d3: 开放性 (15题) ===
+  {dim:'d2',text:'即使理智告诉我应该合作，如果直觉不喜欢对方，我也很难行动'},
+  // === d3: 决策模式 (6题) ===
   {dim:'d3',text:'我对与自己背景截然不同的人充满好奇'},
   {dim:'d3',text:'我更信赖经过验证的传统做法，而非新奇的方法',reverse:true},
-  {dim:'d3',text:'我乐于接受不同圈层的人带来的新视角'},
-  {dim:'d3',text:'我认为"一直以来都这样做"是很好的理由',reverse:true},
-  {dim:'d3',text:'我享受走出社交舒适区的感觉'},
   {dim:'d3',text:'面对新的社交模式或工具，我会积极尝试'},
   {dim:'d3',text:'我倾向于在已知的圈子里活动，而非探索新领域',reverse:true},
-  {dim:'d3',text:'我愿意为了融入更高圈层而改变自己的行为方式'},
-  {dim:'d3',text:'对陌生的社交规则，我更倾向于观察学习而非质疑',reverse:true},
   {dim:'d3',text:'我经常反思自己是否被旧观念束缚'},
-  {dim:'d3',text:'我乐于尝试与过去经验完全不同的社交方式'},
-  {dim:'d3',text:'面对不同文化或价值观，我会主动了解而非回避'},
-  {dim:'d3',text:'我认为改变自己适应环境是一种能力而非妥协'},
-  {dim:'d3',text:'我对于打破既定社交规则感到不安',reverse:true},
   {dim:'d3',text:'我相信今天的最佳策略可能明天就不再适用'},
-  // === d4: 合作性 (15题) ===
-  {dim:'d4',text:'在团队合作中，我更在意整体成果而非个人表现'},
-  {dim:'d4',text:'我认为只有比别人做得更好才能获得认可',reverse:true},
+  // === d4: 关系定位 (6题) ===
   {dim:'d4',text:'遇到分歧时，我会优先寻找双方都能接受的方案'},
   {dim:'d4',text:'在资源有限时，我倾向于优先确保自己的利益',reverse:true},
   {dim:'d4',text:'我认为帮助他人成功最终也会帮助自己成功'},
-  {dim:'d4',text:'我更享受独自完成任务而非团队协作',reverse:true},
-  {dim:'d4',text:'我擅长在冲突中找到各方的共同利益'},
-  {dim:'d4',text:'我会为了团队目标而牺牲个人利益'},
-  {dim:'d4',text:'在合作关系中，我更关注自己是否吃亏',reverse:true},
   {dim:'d4',text:'我善于发现不同人的优势并促成协作'},
-  {dim:'d4',text:'面对竞争对手，我的第一反应是思考如何共赢'},
   {dim:'d4',text:'面对竞争对手，我的第一反应是思考如何胜出',reverse:true},
   {dim:'d4',text:'我愿意分享自己的资源和信息来换取长期合作'},
-  {dim:'d4',text:'我认为适当的竞争能让关系更有活力',reverse:true},
-  {dim:'d4',text:'我习惯在合作中设定清晰的边界以保护自己',reverse:true},
-  // === d5: 冒险性 (15题) ===
-  {dim:'d5',text:'我宁愿选择稳定但增长缓慢的路径',reverse:true},
+  // === d5: 圈层流动 (6题) ===
   {dim:'d5',text:'面对高风险高回报的机会，我内心会跃跃欲试'},
-  {dim:'d5',text:'我习惯在有充分把握时才行动',reverse:true},
+  {dim:'d5',text:'我宁愿选择稳定但增长缓慢的路径',reverse:true},
   {dim:'d5',text:'我认为主动承担风险是突破现状的必要代价'},
-  {dim:'d5',text:'我对生活中的不确定性感到不安',reverse:true},
-  {dim:'d5',text:'我愿意为了一次重要的圈层跃迁投入大量资源'},
   {dim:'d5',text:'我更倾向于选择"安全但平庸"而非"冒险但精彩"',reverse:true},
-  {dim:'d5',text:'在社交中，我敢于表达可能引起争议的观点'},
-  {dim:'d5',text:'我会因为担心失败的后果而放弃尝试',reverse:true},
-  {dim:'d5',text:'我享受挑战未知领域带来的刺激感'},
   {dim:'d5',text:'即使只有三成把握，我也愿意为关键机会一搏'},
-  {dim:'d5',text:'在做重大社交决策前，我需要收集大量信息才安心',reverse:true},
-  {dim:'d5',text:'我信奉"不入虎穴焉得虎子"'},
-  {dim:'d5',text:'面对不确定的局面，我更倾向于观望而非行动',reverse:true},
   {dim:'d5',text:'我曾在关键时刻做出过旁人觉得冒险但后来证明正确的决定'}
 ];
 // 标签校准题：针对6大人群标签的精准诊断（每标签3题）
 var TAG_DIAGNOSTIC_QUESTIONS=[
-  // === 策略突破者🏹 (5题) ===
+  // === 策略突破者🏹 (2题) ===
   {tag:'strategist',text:'我擅长在社交中设计策略来达到目标'},
-  {tag:'strategist',text:'我会为了长期社交目标牺牲短期的舒适'},
-  {tag:'strategist',text:'我善于找到社交网络中的关键节点并建立连接'},
-  {tag:'strategist',text:'我习惯为每次社交互动设定明确目标'},
   {tag:'strategist',text:'我能在复杂关系中找到对自己最有利的路径'},
-  // === 防御保守者🛡️ (5题) ===
+  // === 防御保守者🛡️ (2题) ===
   {tag:'defender',text:'在社交中我更注重保护自己不受伤害'},
   {tag:'defender',text:'我宁愿错失机会也不愿冒险进入不确定的关系'},
-  {tag:'defender',text:'我习惯先评估风险再决定是否参与社交活动'},
-  {tag:'defender',text:'对于主动靠近我的人，我总会保持警惕'},
-  {tag:'defender',text:'在新的社交环境中，我倾向于低调观察而非积极表现'},
-  // === 情感驱动者🔥 (5题) ===
-  {tag:'emotional',text:'做社交决策时，我很难忽视自己的情绪感受'},
+  // === 情感驱动者🔥 (2题) ===
   {tag:'emotional',text:'我更在乎关系中的人情味而非利益交换'},
-  {tag:'emotional',text:'我会因为对一个人有好感而忽略他/她的缺点'},
   {tag:'emotional',text:'一段关系的温度比它能带来的价值更重要'},
-  {tag:'emotional',text:'我经常凭第一感觉判断一个人是否值得深交'},
-  // === 理性分析师🧊 (5题) ===
+  // === 理性分析师🧊 (2题) ===
   {tag:'analyst',text:'我习惯用数据和逻辑来评估社交关系的价值'},
-  {tag:'analyst',text:'在做社交选择前，我会做充分的调查和分析'},
-  {tag:'analyst',text:'我能在情绪波动时依然保持客观判断'},
-  {tag:'analyst',text:'我会系统性地评估每个人的能力和资源价值'},
   {tag:'analyst',text:'做关系决策时，我更相信分析结果而非内心感受'},
-  // === 主导掌控者⚔️ (5题) ===
+  // === 主导掌控者⚔️ (2题) ===
   {tag:'dominator',text:'在关系中我喜欢掌握主动权和话语权'},
-  {tag:'dominator',text:'我不怕在社交中表达不同意见甚至引发冲突'},
-  {tag:'dominator',text:'我会主动制定规则来管理社交关系'},
   {tag:'dominator',text:'团队中无人牵头时，我会自然地站出来主导'},
-  {tag:'dominator',text:'我认为在社交中"先发制人"比"被动响应"更有效'},
-  // === 适应流动者🌊 (5题) ===
+  // === 适应流动者🌊 (2题) ===
   {tag:'adapter',text:'我能快速适应不同社交场合的氛围和规则'},
-  {tag:'adapter',text:'我更愿意根据环境变化调整自己的社交策略'},
-  {tag:'adapter',text:'在不同圈层之间切换时，我能自然地调整行为方式'},
-  {tag:'adapter',text:'我认为"到什么山唱什么歌"是成熟的社交智慧'},
   {tag:'adapter',text:'面对突发的社交变化，我能快速调整心态和策略'},
-  // === 社交连接者🤝 (5题) ===
-  {tag:'connector',text:'我认为广泛的人脉关系是成功的关键'},
-  {tag:'connector',text:'我擅长记住每个人的关键信息并在需要时激活'},
-  {tag:'connector',text:'我经常主动组织聚会或活动来维系关系'},
+  // === 社交连接者🤝 (2题) ===
   {tag:'connector',text:'我享受在多个圈子之间做"桥梁"的感觉'},
-  {tag:'connector',text:'我手机里有大量联系人，且大部分保持互动'},
-  // === 独立深耕者🎯 (5题) ===
-  {tag:'specialist',text:'我更倾向于独自深入研究某个领域，而非频繁社交'},
+  {tag:'connector',text:'我经常主动组织聚会或活动来维系关系'},
+  // === 独立深耕者🎯 (2题) ===
   {tag:'specialist',text:'我认为专业深度比人脉广度更有长期价值'},
   {tag:'specialist',text:'我靠实力和成果吸引人脉，而非主动社交'},
-  {tag:'specialist',text:'我宁愿花时间精进技能，也不愿参加社交应酬'},
-  {tag:'specialist',text:'我认为"酒香不怕巷子深"在社交中同样适用'},
-  // === 快速行动者⚡ (5题) ===
+  // === 快速行动者⚡ (2题) ===
   {tag:'executor',text:'我信奉"先做再说"，在实践中调整方向'},
-  {tag:'executor',text:'面对紧急社交需求，我能快速做出判断并采取行动'},
-  {tag:'executor',text:'我更习惯在行动中学习，而不是等到万事俱备'},
   {tag:'executor',text:'机会稍纵即逝，我倾向于先抓住再优化'},
-  {tag:'executor',text:'过度思考会让我错过最佳行动时机'},
-  // === 深思规划者🧭 (5题) ===
+  // === 深思规划者🧭 (2题) ===
   {tag:'planner',text:'重大决定前，我会花大量时间研究和规划'},
-  {tag:'planner',text:'我会为每个重要社交目标制定详细的执行计划'},
-  {tag:'planner',text:'我认为"磨刀不误砍柴工"，准备充分再行动'},
-  {tag:'planner',text:'我会预判多种可能的结果并准备应对方案'},
   {tag:'planner',text:'没有想清楚之前，我不会轻易做出社交承诺'},
-  // === 关系维护者💝 (5题) ===
+  // === 关系维护者💝 (2题) ===
   {tag:'nurturer',text:'我维护关系是因为感情纽带，而非潜在利益'},
   {tag:'nurturer',text:'即便暂时用不上，我也会保持与旧友的联系'},
-  {tag:'nurturer',text:'我会为了维护重要关系而牺牲部分个人利益'},
-  {tag:'nurturer',text:'看到朋友过得好，我由衷高兴而非焦虑'},
-  {tag:'nurturer',text:'我愿意花大量时间和精力经营已有关系'},
-  // === 价值交换者💼 (5题) ===
+  // === 价值交换者💼 (2题) ===
   {tag:'exchanger',text:'在人际交往中，我会有意识地评估对方的资源和价值'},
-  {tag:'exchanger',text:'我认为每段关系都应该有明确的互惠价值'},
-  {tag:'exchanger',text:'我会定期梳理人脉资源的价值等级'},
-  {tag:'exchanger',text:'投入一段关系前，我会先评估回报率'},
   {tag:'exchanger',text:'我认为"利益交换"是健康关系的基石而非贬义'},
-  // === 情境适配者🎭 (5题) ===
+  // === 情境适配者🎭 (2题) ===
   {tag:'chameleon',text:'在不同社交场合，我会调整自己的言行以适应环境'},
-  {tag:'chameleon',text:'我认为灵活变通比固守原则更实用'},
-  {tag:'chameleon',text:'我善于根据对话对象的风格调整沟通方式'},
-  {tag:'chameleon',text:'在不同文化背景的人面前，我会有不同的表达方式'},
   {tag:'chameleon',text:'我认为社交中的"圆滑"是一种能力而非虚伪'},
-  // === 原则坚守者🏛️ (5题) ===
+  // === 原则坚守者🏛️ (2题) ===
   {tag:'principled',text:'无论在什么场合，我都坚持自己的核心原则不变'},
-  {tag:'principled',text:'有些底线是不能因环境而改变的'},
-  {tag:'principled',text:'我宁愿得罪人也不愿违背自己的价值观'},
-  {tag:'principled',text:'在社交中保持一致性比迎合他人更重要'},
-  {tag:'principled',text:'我会明确告诉他人我的不可妥协之处'}
+  {tag:'principled',text:'我宁愿得罪人也不愿违背自己的价值观'}
 ];
-var _PQ_PER_DIM=15;var _TQ_TOTAL=70;var _TOTAL_Q=_PQ_PER_DIM*5+_TQ_TOTAL;
+var _PQ_PER_DIM=6;var _TQ_TOTAL=28;var _TOTAL_Q=_PQ_PER_DIM*5+_TQ_TOTAL;
 function computePersonality(scores,tagScores){
   var dimAvg={d1:0,d2:0,d3:0,d4:0,d5:0};
   var dimCount={d1:0,d2:0,d3:0,d4:0,d5:0};
@@ -2135,7 +2048,7 @@ function computePersonality(scores,tagScores){
     var tag=PERSONALITY_TAGS[t];
     var dimPart=0;for(var wd in tag.weights){dimPart+=dimAvg[wd]*tag.weights[wd]}
     var diagPart=tagDiagAvg[tag.id]||3;
-    var combined=dimPart*0.6+diagPart*0.4;
+    var combined=dimPart*0.7+diagPart*0.3;
     finalTagScores.push({tag:tag,score:combined,dimScore:dimPart,diagScore:diagPart});
   }
   // Select top tag from each pair
@@ -2322,21 +2235,16 @@ function buildPersonalityAiContext(){
 var _psyStage=0;var _psySubStep=0;var _psyScores=new Array(_TOTAL_Q).fill(null);
 // 三阶段测评结构
 var _PSY_STAGES=[
-  {name:'五维扫描',icon:'🔍',color:'#e63946',desc:'探索你的社交驱动、情绪韧性和决策模式',subSteps:[
-    {dimIdx:0,count:15,type:'dim'},
-    {dimIdx:1,count:15,type:'dim'},
-    {dimIdx:2,count:15,type:'dim'}
-  ]},
-  {name:'五维补全',icon:'🎯',color:'#0984e3',desc:'补全关系定位与圈层流动维度',subSteps:[
-    {dimIdx:3,count:15,type:'dim'},
-    {dimIdx:4,count:15,type:'dim'}
+  {name:'五维扫描',icon:'🔍',color:'#e63946',desc:'全面扫描你的社交性格五维度',subSteps:[
+    {dimIdx:0,count:6,type:'dim'},
+    {dimIdx:1,count:6,type:'dim'},
+    {dimIdx:2,count:6,type:'dim'},
+    {dimIdx:3,count:6,type:'dim'},
+    {dimIdx:4,count:6,type:'dim'}
   ]},
   {name:'标签校准',icon:'🏷️',color:'#8b5cf6',desc:'14标签精校，锁定你的社交人格',subSteps:[
-    {startIdx:0,count:15,type:'tag',title:'核心标签 · 上',subtitle:'策略突破者🏹 · 防御保守者🛡️ · 情感驱动者🔥'},
-    {startIdx:15,count:15,type:'tag',title:'核心标签 · 下',subtitle:'理性分析师🧊 · 主导掌控者⚔️ · 适应流动者🌊'},
-    {startIdx:30,count:15,type:'tag',title:'细分标签 · 上',subtitle:'社交连接🤝 · 独立深耕🎯 · 快速行动⚡'},
-    {startIdx:45,count:15,type:'tag',title:'细分标签 · 中',subtitle:'深思规划🧭 · 关系维护💝 · 价值交换💼'},
-    {startIdx:60,count:10,type:'tag',title:'细分标签 · 下',subtitle:'情境适配🎭 · 原则坚守🏛️'}
+    {startIdx:0,count:14,type:'tag',title:'核心标签',subtitle:'策略突破者🏹 · 防御保守者🛡️ · 情感驱动者🔥 · 理性分析师🧊 · 主导掌控者⚔️ · 适应流动者🌊'},
+    {startIdx:14,count:14,type:'tag',title:'细分标签',subtitle:'社交连接🤝 · 独立深耕🎯 · 快速行动⚡ · 深思规划🧭 · 关系维护💝 · 价值交换💼 · 情境适配🎭 · 原则坚守🏛️'}
   ]}
 ];
 
@@ -2355,14 +2263,14 @@ function getPsyStepInfo(){
     var dim=PERSONALITY_DIMS[sub.dimIdx];
     return{startIdx:sub.dimIdx*_PQ_PER_DIM,count:sub.count,type:'dim',title:dim.name,subtitle:dim.left+' ←→ '+dim.right,color:stage.color};
   }else{
-    return{startIdx:75+sub.startIdx,count:sub.count,type:'tag',title:sub.title,subtitle:sub.subtitle,color:stage.color};
+    return{startIdx:30+sub.startIdx,count:sub.count,type:'tag',title:sub.title,subtitle:sub.subtitle,color:stage.color};
   }
 }
 function isStageComplete(si){
   var stage=_PSY_STAGES[si];
   for(var s=0;s<stage.subSteps.length;s++){
     var sub=stage.subSteps[s];
-    var startIdx=sub.type==='dim'?sub.dimIdx*_PQ_PER_DIM:75+sub.startIdx;
+    var startIdx=sub.type==='dim'?sub.dimIdx*_PQ_PER_DIM:30+sub.startIdx;
     for(var j=startIdx;j<startIdx+sub.count;j++){if(_psyScores[j]===null)return false}
   }
   return true;
@@ -2418,7 +2326,7 @@ function renderStageSummary(c,stageIdx){
         }
       }
       var diagPart=tagDiagCount>0?(tagDiagAvg/tagDiagCount):3;
-      var combined=dimPart*0.6+diagPart*0.4;
+      var combined=dimPart*0.7+diagPart*0.3;
       tagPreview.push({tag:tag,score:combined});
     }
     tagPreview.sort(function(a,b){return b.score-a.score});
@@ -2452,7 +2360,7 @@ function renderPsyStep(c){
   var answeredInStage=0;var totalInStage=0;
   for(var s=0;s<stage.subSteps.length;s++){
     var sub=stage.subSteps[s];
-    var sStart=sub.type==='dim'?sub.dimIdx*_PQ_PER_DIM:75+sub.startIdx;
+    var sStart=sub.type==='dim'?sub.dimIdx*_PQ_PER_DIM:30+sub.startIdx;
     totalInStage+=sub.count;
     for(var j=sStart;j<sStart+sub.count;j++){if(_psyScores[j]!==null)answeredInStage++}
   }
@@ -2468,7 +2376,7 @@ function renderPsyStep(c){
   for(var i=0;i<totalSubSteps;i++){
     var subDone=true;
     var subi=stage.subSteps[i];
-    var subStart=subi.type==='dim'?subi.dimIdx*_PQ_PER_DIM:75+subi.startIdx;
+    var subStart=subi.type==='dim'?subi.dimIdx*_PQ_PER_DIM:30+subi.startIdx;
     for(var j=subStart;j<subStart+subi.count;j++){if(_psyScores[j]===null){subDone=false;break}}
     h+='<div style="width:10px;height:10px;border-radius:50%;background:'+(i<_psySubStep||subDone?stage.color:i===_psySubStep?'var(--primary)':'#e2dcd0')+';transition:.3s"></div>';
   }
@@ -2696,7 +2604,7 @@ window.psyPrev=psyPrev;window.psyNext=psyNext;window.psySubmit=psySubmit;window.
 
 /* ========== 测评中心 ========== */
 var PSYCH_TESTS=[
-  {id:'core',name:'核心画像测评',icon:'🧬',cat:'core',desc:'5维14标签全面性格画像',qCount:145,time:'12分钟',color:'#e63946'},
+  {id:'core',name:'核心画像测评',icon:'🧬',cat:'core',desc:'5维14标签全面性格画像',qCount:58,time:'5分钟',color:'#e63946'},
   {id:'mbti',name:'MBTI性格类型',icon:'🧠',cat:'core',desc:'16型人格，发现你的社交人格密码',qCount:28,time:'4分钟',color:'#a855f7',
    disclaimer:'本测评基于MBTI理论（Myers-Briggs Type Indicator）改编，仅供自我认知和社交风格参考，不构成心理学诊断。MBTI在学术界存在争议，建议结合其他评估综合判断。',
    reliability:'重测信度 r = 0.65~0.85（参考MBTI Form M）'},
@@ -3846,7 +3754,7 @@ var PRESSURE_ADVICE=[
 ];
 
 var SUPER_ADMIN_ID='yangyong';
-var CONFIG_VERSION='6.4';var _GUIDE_VER='3.0';var VER='6.4';(function(){var p=new URLSearchParams(window.location.search);if(p.get('v')!==VER){window.location.href=window.location.pathname+'?v='+VER;}})();;
+var CONFIG_VERSION='6.5';var _GUIDE_VER='3.0';var VER='6.5';(function(){var p=new URLSearchParams(window.location.search);if(p.get('v')!==VER){window.location.href=window.location.pathname+'?v='+VER;}})();;
 var CLOUD_SYNC_URL='https://api.yangyong.asia';
 var _cloudSyncTimer=null;
 function isSuperAdmin(){return state.isAdmin&&getCurUserId()===SUPER_ADMIN_ID;}

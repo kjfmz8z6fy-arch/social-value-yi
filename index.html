@@ -785,11 +785,62 @@ body.admin-mode .admin-toolbar{display:block}
           <h4 style="margin:0 0 .5rem;color:#10b981">🤖 模式二：AI智囊（需联网+API Key）</h4>
           <div class="guide-step-box" style="margin-bottom:.5rem">
             <div><span class="step-num">1</span><span class="step-title">配置AI接口</span></div>
-            <div class="step-desc">点击顶部「⚙ API」按钮，选择AI服务商并填入API Key：<br>
+            <div class="step-desc">在下方快速配置，或进入系统后点击「⚙ API」按钮：<br>
               <b>· DeepSeek</b>（推荐，性价比高）→ 填入 sk- 开头的Key<br>
               <b>· OpenAI</b> → 填入Key，自动配置gpt-4o-mini<br>
               <b>· 自定义端点</b> → 填写Base URL和模型名，兼容任何OpenAI格式API</div>
             <div class="step-tip">💡 API Key仅保存在你的浏览器本地，不会上传到任何服务器</div>
+          </div>
+          <!-- 快速API配置卡 -->
+          <div id="guideAiConfigCard" style="background:#fff;border:1.5px solid #d1d5db;border-radius:12px;padding:1rem;margin:.8rem 0">
+            <div style="font-weight:700;font-size:.9rem;color:#10b981;margin-bottom:.7rem">⚡ 快速配置AI接口</div>
+            <div style="margin-bottom:.6rem">
+              <label style="font-size:.82rem;color:#555;display:block;margin-bottom:.3rem">选择接口模式</label>
+              <div style="display:flex;gap:.5rem">
+                <label id="guideAiModeSys" style="flex:1;padding:.5rem;border-radius:10px;border:2px solid var(--primary);background:rgba(99,102,241,.06);cursor:pointer;text-align:center;font-weight:600;font-size:.82rem">
+                  <input type="radio" name="guideAiMode" value="system" id="guideAiModeSysRadio" checked style="display:none">
+                  🏠 内置接口
+                </label>
+                <label id="guideAiModeCus" style="flex:1;padding:.5rem;border-radius:10px;border:2px solid var(--border);background:#fff;cursor:pointer;text-align:center;font-weight:600;font-size:.82rem">
+                  <input type="radio" name="guideAiMode" value="custom" id="guideAiModeCusRadio" style="display:none">
+                  🔑 自定义Key
+                </label>
+              </div>
+            </div>
+            <div id="guideAiSysInfo" style="background:rgba(99,102,241,.06);border-radius:8px;padding:.6rem;font-size:.82rem;color:#4a6580;line-height:1.5">
+              <div style="font-weight:600;color:var(--primary)">✅ 内置接口 — 无需配置，开箱即用</div>
+              <div>使用系统预置AI接口，直接提问即可，无需自己注册和配置。</div>
+            </div>
+            <div id="guideAiCustomForm" style="display:none">
+              <div style="margin-bottom:.5rem">
+                <label style="font-size:.82rem;color:#555;display:block;margin-bottom:.25rem">提供商</label>
+                <select id="guideAiProvider" style="width:100%;padding:.45rem;border:1px solid #d1d5db;border-radius:8px;font-size:.85rem;background:#fff">
+                  <option value="deepseek">DeepSeek（推荐）</option>
+                  <option value="openai">OpenAI</option>
+                  <option value="custom">自定义端点</option>
+                </select>
+              </div>
+              <div style="margin-bottom:.5rem">
+                <label style="font-size:.82rem;color:#555;display:block;margin-bottom:.25rem">API Key</label>
+                <input type="password" id="guideAiApiKey" placeholder="sk-xxx" style="width:100%;padding:.45rem;border:1px solid #d1d5db;border-radius:8px;font-size:.85rem;box-sizing:border-box">
+              </div>
+              <div id="guideAiBaseUrlRow" style="margin-bottom:.5rem;display:none">
+                <label style="font-size:.82rem;color:#555;display:block;margin-bottom:.25rem">Base URL</label>
+                <input type="text" id="guideAiBaseUrl" placeholder="https://api.deepseek.com" style="width:100%;padding:.45rem;border:1px solid #d1d5db;border-radius:8px;font-size:.85rem;box-sizing:border-box">
+              </div>
+              <div id="guideAiModelRow" style="margin-bottom:.5rem;display:none">
+                <label style="font-size:.82rem;color:#555;display:block;margin-bottom:.25rem">模型名</label>
+                <input type="text" id="guideAiModel" placeholder="deepseek-chat" style="width:100%;padding:.45rem;border:1px solid #d1d5db;border-radius:8px;font-size:.85rem;box-sizing:border-box">
+              </div>
+              <div style="background:rgba(16,185,129,.06);border-radius:8px;padding:.5rem .7rem;font-size:.78rem;color:#4a6580;line-height:1.6;margin-top:.3rem">
+                <b>DeepSeek</b>：打开 <a href="https://platform.deepseek.com" target="_blank" style="color:var(--primary)">platform.deepseek.com</a> 注册→充值(10元可用很久)→创建API Key→复制粘贴到上方<br>
+                <b>OpenAI</b>：打开 <a href="https://platform.openai.com/api-keys" target="_blank" style="color:var(--primary)">platform.openai.com</a> 创建Key<br>
+                <b>自定义</b>：填写兼容OpenAI格式的Base URL和模型名<br>
+                <span style="color:var(--muted)">💡 Key仅存于浏览器本地，不上传任何服务器</span>
+              </div>
+            </div>
+            <button id="guideAiConfigSave" style="width:100%;padding:.55rem;border-radius:20px;border:none;background:linear-gradient(135deg,#10b981,#059669);color:#fff;font-weight:700;font-size:.88rem;cursor:pointer;margin-top:.7rem;touch-action:manipulation">保存配置</button>
+            <div id="guideAiConfigMsg" style="text-align:center;font-size:.82rem;margin-top:.4rem;display:none"></div>
           </div>
           <div class="guide-step-box" style="margin-bottom:.5rem">
             <div><span class="step-num">2</span><span class="step-title">开始对话</span></div>
@@ -977,13 +1028,35 @@ body.admin-mode .admin-toolbar{display:block}
 
     
     <div class="card" style="margin-bottom:1rem">
-      <div class="card-title">🧬 九、性格画像 — 5维14标精准测评</div>
+      <div class="card-title">🧬 九、测评中心 — 多维性格测评</div>
       <div class="guide-section">
-        <p style="margin-bottom:1rem;color:#4a6580">性格画像Tab提供<b>5大维度+7组标签校准</b>的全面性格测评，帮你深度了解自己的社交行为模式。</p>
+        <p style="margin-bottom:1rem;color:#4a6580">测评中心提供<b>6大专业测评</b>，分三大类帮你从不同角度深度了解自己的社交行为模式。</p>
+
+        <div style="background:rgba(230,57,70,.06);border-radius:10px;padding:.8rem;margin-bottom:.8rem">
+          <h4 style="margin:0 0 .4rem;color:#e63946;font-size:.9rem">🔴 核心测评</h4>
+          <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:.4rem">
+            <span style="background:#fff0f0;padding:.3rem .7rem;border-radius:20px;font-size:.8rem;border:1px solid #f5c6cb"><b>核心画像</b> — 5维14标签，58题，5分钟</span>
+            <span style="background:#f0f5ff;padding:.3rem .7rem;border-radius:20px;font-size:.8rem;border:1px solid #c7d2fe"><b>MBTI</b> — 4维度28题，16型人格+社交圈层解读</span>
+          </div>
+        </div>
+        <div style="background:rgba(99,102,241,.06);border-radius:10px;padding:.8rem;margin-bottom:.8rem">
+          <h4 style="margin:0 0 .4rem;color:#6366f1;font-size:.9rem">🔵 经典量表</h4>
+          <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:.4rem">
+            <span style="background:#f0f0ff;padding:.3rem .7rem;border-radius:20px;font-size:.8rem;border:1px solid #ddd6fe"><b>大五人格</b> — 15题经典量表</span>
+            <span style="background:#f0f0ff;padding:.3rem .7rem;border-radius:20px;font-size:.8rem;border:1px solid #ddd6fe"><b>霍兰德职业兴趣</b> — 30题职业倾向</span>
+          </div>
+        </div>
+        <div style="background:rgba(16,185,129,.06);border-radius:10px;padding:.8rem;margin-bottom:.8rem">
+          <h4 style="margin:0 0 .4rem;color:#10b981;font-size:.9rem">🟢 趣味测评</h4>
+          <div style="display:flex;gap:.5rem;flex-wrap:wrap">
+            <span style="background:#f0fff4;padding:.3rem .7rem;border-radius:20px;font-size:.8rem;border:1px solid #a7f3d0"><b>圈层社交风格</b> — 12题场景代入</span>
+            <span style="background:#f0fff4;padding:.3rem .7rem;border-radius:20px;font-size:.8rem;border:1px solid #a7f3d0"><b>社交能量值</b> — 10题即时反馈</span>
+          </div>
+        </div>
 
         <div class="guide-feature-card">
           <h4>📐 五大核心维度</h4>
-          <p style="font-size:.85rem;color:#555;line-height:1.8">每个维度15道精选题目，精准定位你在社交光谱中的位置：</p>
+          <p style="font-size:.85rem;color:#555;line-height:1.8">每个维度6道精选题目，精准定位你在社交光谱中的位置：</p>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:.4rem;margin-top:.5rem">
             <div style="background:#f0f5ff;padding:.4rem .7rem;border-radius:6px;font-size:.82rem">🔵 主动性 — 主动出击 vs 被动等待</div>
             <div style="background:#fff0f0;padding:.4rem .7rem;border-radius:6px;font-size:.82rem">🔴 情感性 — 感性直觉 vs 理性逻辑</div>
@@ -1011,7 +1084,7 @@ body.admin-mode .admin-toolbar{display:block}
         </div>
 
         <div class="guide-step-box">
-          <div><span class="step-num">1</span><b>完成测评</b> — 75道维度题 + 35道标签校准题，约12分钟</div>
+          <div><span class="step-num">1</span><b>完成测评</b> — 30道维度题 + 28道标签校准题，约5分钟</div>
           <div><span class="step-num">2</span><b>查看画像</b> — 核心人格标签 + 细分特征 + 雷达图 + 维度详情</div>
           <div><span class="step-num">3</span><b>系统联动</b> — 性格数据自动融入AI智囊分析，提供个性化建议</div>
           <div><span class="step-num">4</span><b>随时重测</b> — 认知升级后可重新测评，追踪性格演变</div>
@@ -1051,7 +1124,7 @@ body.admin-mode .admin-toolbar{display:block}
         </div>
         <div class="guide-qna">
           <div class="q">Q：换了手机/电脑能同步数据吗？</div>
-          <div class="a">A：当前版本数据仅存于本地设备，不支持跨设备同步。你可以在数据中心导出数据文件，在新设备上导入恢复。</div>
+          <div class="a">A：支持！注册账号后系统自动云端备份，在新设备登录同一账号即可恢复数据。也可以在数据中心导出备份文件手动迁移，或使用恢复码快速恢复。</div>
         </div>
         <div class="guide-qna">
           <div class="q">Q：忘记密码怎么办？</div>
@@ -3754,7 +3827,7 @@ var PRESSURE_ADVICE=[
 ];
 
 var SUPER_ADMIN_ID='yangyong';
-var CONFIG_VERSION='6.5';var _GUIDE_VER='3.0';var VER='6.5';(function(){var p=new URLSearchParams(window.location.search);if(p.get('v')!==VER){window.location.href=window.location.pathname+'?v='+VER;}})();;
+var CONFIG_VERSION='6.6';var _GUIDE_VER='3.1';var VER='6.6';(function(){var p=new URLSearchParams(window.location.search);if(p.get('v')!==VER){window.location.href=window.location.pathname+'?v='+VER;}})();;
 var CLOUD_SYNC_URL='https://api.yangyong.asia';
 var _cloudSyncTimer=null;
 function isSuperAdmin(){return state.isAdmin&&getCurUserId()===SUPER_ADMIN_ID;}
@@ -5959,6 +6032,8 @@ function enterSystem(userId){
   state.isAdmin=false;
   updateAdminToggleUI();
   recoverSysAiConfig();checkVersionMigration();
+  // Apply guide pre-configured AI settings
+  try{var _preCfg=localStorage.getItem('svy_guideAiPreConfig');if(_preCfg){var _pc=JSON.parse(_preCfg);if(_pc.mode==='system'){saveAiMode('system')}else if(_pc.mode==='custom'&&_pc.apiKey){saveAiMode('custom');saveAiConfig({provider:_pc.provider,apiKey:_pc.apiKey,baseUrl:_pc.baseUrl,model:_pc.model})}localStorage.removeItem('svy_guideAiPreConfig')}}catch(e){}
   var cfgBtn=document.getElementById('aiConfigBtn');if(cfgBtn){cfgBtn.style.display=isSuperAdmin()?'inline-block':'none'}
   console.log('[Admin] userId='+getCurUserId()+' isSuper='+(getCurUserId()===SUPER_ADMIN_ID)+' btn='+(document.getElementById('adminToggleBtn')?document.getElementById('adminToggleBtn').style.display:'null'));
   initApp();renderAll();
@@ -6082,6 +6157,46 @@ var _guideCards=null,_guideTotalPages=0,_guideCurPage=0;
 function initGuidePages(){_guideCards=document.querySelectorAll('.guide-overlay-inner > .card');_guideTotalPages=_guideCards.length;if(!_guideTotalPages)return;_guideCards.forEach(function(c,i){c.classList.add('guide-page');if(i===0)c.classList.add('active')});var dotsHtml='';for(var i=0;i<_guideTotalPages;i++)dotsHtml+='<span class="guide-dot'+(i===0?' active':'')+'"></span>';document.getElementById('guideDots').innerHTML=dotsHtml;document.getElementById('guidePageNum').textContent='1/'+_guideTotalPages;var nb=document.getElementById('guideNavBar');if(nb)nb.style.display='flex'}
 function showGuidePage(idx){if(!_guideCards||idx<0||idx>=_guideTotalPages)return;_guideCards.forEach(function(c,i){c.classList.toggle('active',i===idx)});_guideCurPage=idx;document.getElementById('guidePageNum').textContent=(idx+1)+'/'+_guideTotalPages;document.querySelectorAll('#guideDots .guide-dot').forEach(function(d,i){d.classList.toggle('active',i===idx)});var prev=document.getElementById('guidePrevBtn');var next=document.getElementById('guideNextBtn');prev.classList.toggle('disabled',idx===0);if(idx===_guideTotalPages-1){next.innerHTML='🚀 进入系统';next.title='进入登录注册';next.classList.remove('disabled');next.classList.add('next-btn')}else{next.innerHTML='下一步 →';next.title='下一页';next.classList.remove('disabled');next.classList.add('next-btn')}document.getElementById('guideOverlay').scrollTo({top:0,behavior:'smooth'})}
 initGuidePages();
+/* Guide AI Config Card bindings */
+(function(){
+  var AI_PROVIDERS={deepseek:{baseUrl:'https://api.deepseek.com',model:'deepseek-chat'},openai:{baseUrl:'https://api.openai.com/v1',model:'gpt-4o-mini'},custom:{baseUrl:'',model:''}};
+  function toggleGuideAiMode(){
+    var isSys=document.getElementById('guideAiModeSysRadio').checked;
+    var sysL=document.getElementById('guideAiModeSys');
+    var cusL=document.getElementById('guideAiModeCus');
+    if(isSys){sysL.style.border='2px solid var(--primary)';sysL.style.background='rgba(99,102,241,.06)';cusL.style.border='2px solid var(--border)';cusL.style.background='#fff';document.getElementById('guideAiSysInfo').style.display='block';document.getElementById('guideAiCustomForm').style.display='none'}
+    else{cusL.style.border='2px solid var(--primary)';cusL.style.background='rgba(16,185,129,.06)';sysL.style.border='2px solid var(--border)';sysL.style.background='#fff';document.getElementById('guideAiSysInfo').style.display='none';document.getElementById('guideAiCustomForm').style.display='block'}
+  }
+  function toggleGuideAiFields(){
+    var p=document.getElementById('guideAiProvider').value;
+    if(p==='custom'){document.getElementById('guideAiBaseUrlRow').style.display='block';document.getElementById('guideAiModelRow').style.display='block'}
+    else{document.getElementById('guideAiBaseUrlRow').style.display='none';document.getElementById('guideAiModelRow').style.display='none';var preset=AI_PROVIDERS[p];document.getElementById('guideAiBaseUrl').value=preset.baseUrl;document.getElementById('guideAiModel').value=preset.model}
+  }
+  function saveGuideAiConfig(){
+    var msg=document.getElementById('guideAiConfigMsg');
+    var isSys=document.getElementById('guideAiModeSysRadio').checked;
+    if(isSys){
+      // save mode=system to localStorage (will be applied after login)
+      localStorage.setItem('svy_guideAiPreConfig',JSON.stringify({mode:'system'}));
+      msg.style.display='block';msg.style.color='#10b981';msg.textContent='✅ 已选择内置接口，进入系统后自动生效';
+      setTimeout(function(){msg.style.display='none'},3000);
+    }else{
+      var provider=document.getElementById('guideAiProvider').value;
+      var apiKey=document.getElementById('guideAiApiKey').value.trim();
+      if(!apiKey){msg.style.display='block';msg.style.color='#e63946';msg.textContent='请输入API Key';return}
+      var baseUrl=document.getElementById('guideAiBaseUrl').value.trim();
+      var model=document.getElementById('guideAiModel').value.trim();
+      if(!baseUrl&&provider!=='custom'){var preset=AI_PROVIDERS[provider];baseUrl=preset.baseUrl;model=preset.model}
+      localStorage.setItem('svy_guideAiPreConfig',JSON.stringify({mode:'custom',provider:provider,apiKey:apiKey,baseUrl:baseUrl,model:model}));
+      msg.style.display='block';msg.style.color='#10b981';msg.textContent='✅ API配置已保存，进入系统后自动生效';
+      setTimeout(function(){msg.style.display='none'},3000);
+    }
+  }
+  document.getElementById('guideAiModeSys').addEventListener('click',function(){document.getElementById('guideAiModeSysRadio').checked=true;toggleGuideAiMode()});
+  document.getElementById('guideAiModeCus').addEventListener('click',function(){document.getElementById('guideAiModeCusRadio').checked=true;toggleGuideAiMode()});
+  document.getElementById('guideAiProvider').addEventListener('change',toggleGuideAiFields);
+  document.getElementById('guideAiConfigSave').addEventListener('click',saveGuideAiConfig);
+})();
 /* Guide button bindings - must run on page load, NOT inside initApp() */
 document.getElementById('guidePrevBtn').addEventListener('click',function(){showGuidePage(_guideCurPage-1)});
 document.getElementById('guideNextBtn').addEventListener('click',function(){if(_guideCurPage>=_guideTotalPages-1){localStorage.setItem('svy_guide_ver',_GUIDE_VER);document.getElementById('guideOverlay').style.display='none';document.getElementById('loginOverlay').style.display='flex'}else{showGuidePage(_guideCurPage+1)}});

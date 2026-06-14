@@ -1527,9 +1527,9 @@ body.admin-mode .admin-toolbar{display:block}
     <!-- System Mode Info -->
     <div id="aiSysModeInfo">
       <div style="background:rgba(99,102,241,.06);border-radius:10px;padding:.8rem;font-size:.85rem;color:#4a6580;line-height:1.6">
-        <div style="font-weight:700;color:var(--primary);margin-bottom:.3rem">✅ 无需配置，开箱即用</div>
-        <div>使用系统预置的AI接口，无需自己注册和配置API Key，直接在AI智囊中提问即可。</div>
-        <div style="margin-top:.4rem;font-size:.8rem;color:var(--muted)">内置接口由系统预配置，所有账号共享，切换账号后配置不丢失。</div>
+        <div style="font-weight:700;color:var(--primary);margin-bottom:.3rem">✅ 内置AI已就绪，开箱即用</div>
+        <div>系统已预置DeepSeek AI接口，无需注册和配置，直接在AI智囊中提问即可获得智能分析。</div>
+        <div style="margin-top:.4rem;font-size:.8rem;color:var(--muted)">内置接口由系统预配置，所有用户共享，开箱即用零门槛。如需使用自己的API Key，可切换至「🔑 自定义接口」。</div>
       </div>
       <!-- Admin: set system key -->
       <div id="sysKeyAdminSection" style="display:none;margin-top:.8rem;padding:.8rem;background:rgba(255,243,224,.5);border-radius:10px;border:1px dashed #f59e0b">
@@ -3777,7 +3777,7 @@ var PRESSURE_ADVICE=[
 ];
 
 var SUPER_ADMIN_ID='yangyong';
-var CONFIG_VERSION='6.6';var _GUIDE_VER='3.1';var VER='6.6';(function(){var p=new URLSearchParams(window.location.search);if(p.get('v')!==VER){window.location.href=window.location.pathname+'?v='+VER;}})();;
+var CONFIG_VERSION='6.7';var _GUIDE_VER='3.1';var VER='6.7';(function(){var p=new URLSearchParams(window.location.search);if(p.get('v')!==VER){window.location.href=window.location.pathname+'?v='+VER;}})();;
 var CLOUD_SYNC_URL='https://api.yangyong.asia';
 var _cloudSyncTimer=null;
 function isSuperAdmin(){return state.isAdmin&&getCurUserId()===SUPER_ADMIN_ID;}
@@ -5523,6 +5523,7 @@ function resetPressureForm(){state.pressureAnswers={};var allBtns=document.query
 
 /* ========== AI CHAT MVP ========== */
 var AI_PROVIDERS={deepseek:{baseUrl:'https://api.deepseek.com',model:'deepseek-chat'},openai:{baseUrl:'https://api.openai.com/v1',model:'gpt-4o-mini'},custom:{baseUrl:'',model:''}};
+var BUILTIN_AI_CONFIG={provider:'deepseek',apiKey:'sk-4868fbe0ce87474fb5d1f88d42efe723',baseUrl:'https://api.deepseek.com',model:'deepseek-chat'};
 var _aiChatHistory=[];
 var _aiStreaming=false;
 function getAiConfig(){
@@ -5532,9 +5533,7 @@ function getAiConfig(){
   if(mode==='custom'&&u&&u.aiConfig&&u.aiConfig.apiKey)return u.aiConfig;
   var sysCfg=localStorage.getItem('socialValueYi_sysAiConfig');
   if(sysCfg){try{var parsed=JSON.parse(sysCfg);if(parsed&&parsed.apiKey)return parsed}catch(e){}}
-  recoverSysAiConfig();
-  sysCfg=localStorage.getItem('socialValueYi_sysAiConfig');
-  if(sysCfg){try{var parsed2=JSON.parse(sysCfg);if(parsed2&&parsed2.apiKey)return parsed2}catch(e){}}
+  if(BUILTIN_AI_CONFIG&&BUILTIN_AI_CONFIG.apiKey)return BUILTIN_AI_CONFIG;
   return null;
 }
 function saveAiConfig(cfg){var uid=getCurUserId();if(!uid)return;var u=getUserData(uid);if(!u)return;u.aiConfig=cfg;saveUserData(uid,u)}
@@ -5715,7 +5714,7 @@ function setTyping(show){
 async function sendAiChat(query){
   if(_aiStreaming)return;
   var cfg=getAiConfig();
-  if(!cfg||!cfg.apiKey){var _msg=isSuperAdmin()?'⚠ AI接口未配置。点击上方「⚙ API」进行配置。':'⚠ AI接口暂未就绪，系统正在配置中，请稍后再试。';appendAiMsg('bot',_msg);return}
+  if(!cfg||!cfg.apiKey){appendAiMsg('bot','⚠ AI接口暂时不可用，请稍后再试。');return}
   _aiStreaming=true;
   document.getElementById('aiSendBtn').disabled=true;
   appendAiMsg('user',query);
@@ -5778,7 +5777,7 @@ function loadAiChat(){
   var u=getUserData(uid);
   _aiChatHistory=(u&&u.aiChatHistory)?u.aiChatHistory.slice(-50):[];
   var box=document.getElementById('aiMsgs');
-  box.innerHTML='<div class="ai-msg bot">👋 我是AI智囊，基于101+个思维模型深度分析社交问题。点击⚙配置接口后，随时向我提问！</div>';
+  box.innerHTML='<div class="ai-msg bot">👋 我是AI智囊，基于101+个思维模型深度分析社交问题。内置AI已就绪，随时向我提问！</div>';
   for(var i=0;i<_aiChatHistory.length;i++){appendAiMsg(_aiChatHistory[i].role,_aiChatHistory[i].content)}
   updateAiStatus();
 }
@@ -5848,7 +5847,8 @@ function saveAiConfigForm(){
     updateAiStatus();
     var sysCfg=localStorage.getItem('socialValueYi_sysAiConfig');
     if(sysCfg){try{var c=JSON.parse(sysCfg);if(c&&c.apiKey){appendAiMsg('bot','✅ 已切换为内置AI接口，可以直接提问了！');return}}catch(e){}}
-    appendAiMsg('bot',isSuperAdmin()?'⚠ 内置接口尚未配置，请在系统配置中设置。':'⚠ AI接口暂未就绪，请联系管理员配置。');
+    if(BUILTIN_AI_CONFIG&&BUILTIN_AI_CONFIG.apiKey){appendAiMsg('bot','✅ 已切换为内置AI接口，可以直接提问了！');return}
+    appendAiMsg('bot','⚠ 内置接口暂不可用，请尝试自定义接口。');
   }else{
     var provider=document.getElementById('aiProvider').value;
     var apiKey=document.getElementById('aiApiKey').value.trim();

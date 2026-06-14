@@ -729,8 +729,9 @@ body.admin-mode .admin-toolbar{display:block}
     <div class="card" style="margin-bottom:1rem">
       <div class="card-title">🧠 一、系统简介</div>
       <div class="guide-section">
-        <p>社交值奕系统是一款集<b>思维模型武器库</b>、<b>关系值评估</b>、<b>圈层闭环压力测试</b>于一体的社交决策工具。101+个思维模型按四大领域分类，每个模型标注细分标签便于精准检索，帮助你从"凭感觉社交"升级为"用系统社交"。</p>
+        <p>社交值奕系统是一款集<b>思维模型武器库</b>、<b>多维性格测评</b>、<b>关系值评估</b>、<b>圈层闭环压力测试</b>、<b>AI智囊</b>于一体的社交决策工具。101+个思维模型+6大专业测评+内置AI开箱即用，帮助你从"凭感觉社交"升级为"用系统社交"。</p>
         <div class="guide-flow-row">
+          <span class="guide-flow-item">🧬 了解自己</span><span class="guide-flow-arrow">→</span>
           <span class="guide-flow-item">🔍 发现问题</span><span class="guide-flow-arrow">→</span>
           <span class="guide-flow-item">🧠 匹配模型</span><span class="guide-flow-arrow">→</span>
           <span class="guide-flow-item">📊 评估现状</span><span class="guide-flow-arrow">→</span>
@@ -756,7 +757,7 @@ body.admin-mode .admin-toolbar{display:block}
     </div>
 
     <div class="card" style="margin-bottom:1rem">
-      <div class="card-title">🎯 三、增强分析 — 智能分析引擎 + AI智囊</div>
+      <div class="card-title">🎯 三、增强分析 — 智能分析引擎 + AI智囊（内置）</div>
       <div class="guide-section">
         <p style="margin-bottom:1rem;color:#4a6580">「增强分析」提供两种分析模式，顶部切换栏可自由切换：</p>
 
@@ -782,27 +783,25 @@ body.admin-mode .admin-toolbar{display:block}
         </div>
 
         <div style="background:rgba(16,185,129,.08);border-radius:10px;padding:1rem;margin-bottom:1rem">
-          <h4 style="margin:0 0 .5rem;color:#10b981">🤖 模式二：AI智囊（需联网+API Key）</h4>
+          <h4 style="margin:0 0 .5rem;color:#10b981">🤖 模式二：AI智囊（内置AI，开箱即用）</h4>
           <div class="guide-step-box" style="margin-bottom:.5rem">
-            <div><span class="step-num">1</span><span class="step-title">配置AI接口</span></div>
-            <div class="step-desc">进入系统后，点击顶部「⚙ AI设置」按钮，选择AI服务商并填入API Key：<br>
-              <b>· DeepSeek</b>（推荐，性价比高）→ 填入 sk- 开头的Key<br>
-              <b>· OpenAI</b> → 填入Key，自动配置gpt-4o-mini<br>
-              <b>· 自定义端点</b> → 填写Base URL和模型名，兼容任何OpenAI格式API</div>
-            <div class="step-tip">💡 API Key仅保存在你的浏览器本地，不会上传到任何服务器</div>
+            <div><span class="step-num">1</span><span class="step-title">直接提问</span></div>
+            <div class="step-desc">系统已内置DeepSeek AI接口，<b>无需任何配置即可使用</b>。切换到AI智囊模式，在输入框中描述你的社交问题，AI会自动检索101+个思维模型中最相关的5个作为上下文，给出深度个性化建议。</div>
+            <div class="step-tip">💡 顶部Header显示「✅ AI已配置」即表示内置AI已就绪，可直接提问</div>
           </div>
           <div class="guide-step-box" style="margin-bottom:.5rem">
-            <div><span class="step-num">2</span><span class="step-title">开始对话</span></div>
-            <div class="step-desc">切换到AI智囊模式后，在输入框中描述你的问题，AI会自动检索系统内101+个思维模型中最相关的5个，作为上下文辅助分析，给出更深入、更有针对性的建议。</div>
-          </div>
-          <div class="guide-step-box" style="margin-bottom:.5rem">
-            <div><span class="step-num">3</span><span class="step-title">持续追问</span></div>
+            <div><span class="step-num">2</span><span class="step-title">持续追问</span></div>
             <div class="step-desc">AI支持多轮对话，你可以针对建议继续追问、要求举例、请AI帮你制定行动计划。聊天记录按账号保存，下次打开可继续。</div>
             <div class="step-tip">💡 AI回复中出现的【模型名】可点击跳转查看该模型详情</div>
           </div>
           <div class="guide-step-box" style="margin-bottom:.5rem">
+            <div><span class="step-num">3</span><span class="step-title">自定义接口（可选）</span></div>
+            <div class="step-desc">如需使用自己的API Key，点击顶部「⚙ AI设置」→切换到「🔑 自定义接口」→填写你的API Key即可。支持DeepSeek、OpenAI及自定义端点。</div>
+            <div class="step-tip">💡 自定义接口仅保存在你的浏览器本地，不会上传到任何服务器</div>
+          </div>
+          <div class="guide-step-box" style="margin-bottom:.5rem">
             <div><span class="step-num">4</span><span class="step-title">离线降级</span></div>
-            <div class="step-desc">未配置API Key时，AI智囊模式会提示你先配置，规则分析模式始终可用。两种模式互不干扰，随时切换。</div>
+            <div class="step-desc">断网时AI智囊不可用，但🎯规则分析模式始终离线可用。两种模式互不干扰，随时切换。</div>
           </div>
         </div>
       </div>
@@ -1044,23 +1043,34 @@ body.admin-mode .admin-toolbar{display:block}
     <div class="card" style="margin-bottom:1rem">
       <div class="card-title">🔄 十、跨Tab协作流程</div>
       <div class="guide-section">
-        <p>六大Tab不是孤立的，以下是推荐的使用流程：</p>
+        <p>七大Tab形成完整闭环，以下是推荐的使用路径：</p>
         <div class="guide-flow-row">
+          <span class="guide-flow-item">🧬 测评中心</span><span class="guide-flow-arrow">→</span>
           <span class="guide-flow-item">🎯 增强分析</span><span class="guide-flow-arrow">→</span>
           <span class="guide-flow-item">📊 RVS评估</span><span class="guide-flow-arrow">→</span>
           <span class="guide-flow-item">🔥 压力测试</span><span class="guide-flow-arrow">→</span>
-          <span class="guide-flow-item">🎯 增强分析</span><span class="guide-flow-arrow">→</span>
+          <span class="guide-flow-item">🤖 AI智囊</span><span class="guide-flow-arrow">→</span>
           <span class="guide-flow-item">闭环</span>
         </div>
         <ol>
-          <li><b>发现问题</b>：在「增强分析」输入你的社交困惑</li>
-          <li><b>匹配模型</b>：用🎯规则分析匹配3个最相关模型，或用🤖AI智囊获取深度AI建议</li>
-          <li><b>量化关系</b>：点击跳转到RVS评估，对这段关系打分</li>
-          <li><b>检测压力</b>：从RVS报告跳转到压力测试，找出压力源</li>
-          <li><b>回到分析</b>：从压力测试报告跳回增强分析，用新关键词继续深挖</li>
-          <li><b>行动闭环</b>：保存记录，下次打开可对比变化</li>
+          <li><b>了解自己</b>：在「测评中心」完成核心画像或MBTI，AI智囊会自动融入你的性格数据</li>
+          <li><b>发现问题</b>：在「增强分析」用🎯规则分析匹配最相关模型，或直接用🤖AI智囊深度提问</li>
+          <li><b>量化关系</b>：从分析报告跳转到RVS评估，对具体关系6维度打分</li>
+          <li><b>检测压力</b>：从RVS报告跳转到压力测试，找出圈层闭环的压力源</li>
+          <li><b>AI深度追问</b>：从任一报告跳回AI智囊，AI结合你的画像+评估数据给出个性化行动方案</li>
+          <li><b>行动闭环</b>：保存所有记录，下次打开可对比变化，持续迭代</li>
         </ol>
-        <div class="step-tip" style="margin-top:.5rem">💡 推荐搭配：先用🎯规则分析快速定位问题，再用🤖AI智囊深入追问细节，获得更完整的行动方案</div>
+        <div style="background:rgba(99,102,241,.06);border-radius:10px;padding:.8rem;margin-top:.8rem">
+          <h4 style="margin:0 0 .5rem;font-size:.9rem;color:#6366f1">🔗 数据联动关系</h4>
+          <div style="font-size:.85rem;color:#555;line-height:2">
+            <div>🧬 <b>测评中心</b> → 性格数据自动融入AI智囊分析，提供个性化建议</div>
+            <div>🎯 <b>增强分析</b> → 可跳转RVS评估、压力测试，也可直接进入AI智囊继续深挖</div>
+            <div>📊 <b>RVS评估</b> → 报告可跳转压力测试、增强分析</div>
+            <div>🔥 <b>压力测试</b> → 报告可跳转RVS评估、增强分析</div>
+            <div>📚 <b>模型库</b> → 任意模型可一键跳转AI智囊，以该模型为主轴进行深度分析</div>
+          </div>
+        </div>
+        <div class="step-tip" style="margin-top:.5rem">💡 最佳实践：先做测评了解自己 → 用规则分析快速定位 → 用AI智囊制定行动计划 → 用RVS+压力测试量化验证 → 保存记录追踪变化</div>
       </div>
     </div>
 
@@ -1069,7 +1079,7 @@ body.admin-mode .admin-toolbar{display:block}
       <div class="guide-section">
         <div class="guide-qna">
           <div class="q">Q：我的数据保存在哪里？安全吗？</div>
-          <div class="a">A：所有数据保存在你浏览器本地的 localStorage 中，按账号ID隔离。不会上传到任何服务器。清除浏览器数据会导致记录丢失，建议定期在数据中心导出备份。</div>
+          <div class="a">A：数据采用<b>本地优先+云端备份</b>双保险架构。主数据保存在浏览器本地，按账号ID隔离；同时自动云端备份，换设备登录同一账号即可恢复。也可以在数据中心导出备份文件，或使用恢复码快速迁移。</div>
         </div>
         <div class="guide-qna">
           <div class="q">Q：换了手机/电脑能同步数据吗？</div>
@@ -1089,19 +1099,19 @@ body.admin-mode .admin-toolbar{display:block}
         </div>
         <div class="guide-qna">
           <div class="q">Q：AI智囊的API Key安全吗？</div>
-          <div class="a">A：API Key仅保存在你浏览器的 localStorage 中，按账号隔离，不会上传到任何服务器。清除浏览器数据会同时清除Key，建议妥善保管。</div>
+          <div class="a">A：内置AI接口由系统预置，你无需关心Key安全。如使用自定义接口，API Key仅保存在你浏览器的 localStorage 中，按账号隔离，不会上传到任何服务器。</div>
         </div>
         <div class="guide-qna">
           <div class="q">Q：AI智囊会收费吗？</div>
-          <div class="a">A：本系统不收取任何AI费用。你使用的是自己配置的API Key，费用由AI服务商按其标准收取。DeepSeek价格极低（约0.001元/次），推荐使用。</div>
+          <div class="a">A：内置AI接口免费使用，由系统预配置，你无需支付任何费用。如切换到自定义接口，则费用由你的API服务商收取（DeepSeek约0.001元/次，极低成本）。</div>
         </div>
         <div class="guide-qna">
           <div class="q">Q：没有配置API Key能用AI智囊吗？</div>
-          <div class="a">A：不能。AI智囊需要联网调用AI接口，未配置Key时会提示你先配置。🎯规则分析模式始终可用，不依赖网络。</div>
+          <div class="a">A：可以！系统已内置DeepSeek AI接口，注册登录后即可直接使用AI智囊，无需任何配置。如需切换为自己的API Key，可在「⚙ AI设置」中切换到自定义接口。</div>
         </div>
         <div class="guide-qna">
           <div class="q">Q：AI智囊和规则分析有什么区别？</div>
-          <div class="a">A：规则分析是离线的，基于关键词匹配101+个思维模型生成固定格式报告，响应快；AI智囊是联网的，AI会检索相关模型知识后进行深度推理和多轮对话，建议更个性化。两者互补，推荐先用规则分析定位，再用AI智囊深挖。</div>
+          <div class="a">A：规则分析是离线的，基于关键词匹配101+个思维模型生成固定格式报告，响应快；AI智囊是联网的，AI会检索相关模型知识+你的性格画像后进行深度推理和多轮对话，建议更个性化。两者互补，推荐先用规则分析定位，再用AI智囊深挖。</div>
         </div>
         <div class="guide-qna">
           <div class="q">Q：系统更新后我的数据会丢失吗？</div>
@@ -3777,7 +3787,7 @@ var PRESSURE_ADVICE=[
 ];
 
 var SUPER_ADMIN_ID='yangyong';
-var CONFIG_VERSION='6.7';var _GUIDE_VER='3.1';var VER='6.7';(function(){var p=new URLSearchParams(window.location.search);if(p.get('v')!==VER){window.location.href=window.location.pathname+'?v='+VER;}})();;
+var CONFIG_VERSION='6.7';var _GUIDE_VER='3.2';var VER='6.7';(function(){var p=new URLSearchParams(window.location.search);if(p.get('v')!==VER){window.location.href=window.location.pathname+'?v='+VER;}})();;
 var CLOUD_SYNC_URL='https://api.yangyong.asia';
 var _cloudSyncTimer=null;
 function isSuperAdmin(){return state.isAdmin&&getCurUserId()===SUPER_ADMIN_ID;}

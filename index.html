@@ -5326,7 +5326,7 @@ function resetPressureForm(){state.pressureAnswers={};var allBtns=document.query
 
 /* ========== AI CHAT MVP ========== */
 var AI_PROVIDERS={deepseek:{baseUrl:'https://api.deepseek.com',model:'deepseek-chat'},openai:{baseUrl:'https://api.openai.com/v1',model:'gpt-4o-mini'},custom:{baseUrl:'',model:''}};
-var BUILTIN_AI_CONFIG={provider:'zhipu',apiKey:'795d5f8752114872ac37ed90d3d7820b.6xPt8zFq1Gf8Ox6e',baseUrl:'https://open.bigmodel.cn/api/paas/v4',model:'glm-4-flash'};
+var BUILTIN_AI_CONFIG={provider:'zhipu',apiKey:'795d5f8752114872ac37ed90d3d7820b.6xPt8zFq1Gf8Ox6e',baseUrl:'https://api.yangyong.asia/ai',model:'glm-4-flash'};
 var _aiChatHistory=[];
 var _aiStreaming=false;
 function getAiConfig(){
@@ -5527,7 +5527,9 @@ async function sendAiChat(query){
   setTyping(true);
   try{
     var url=cfg.baseUrl.replace(/\/+$/,'')+'/chat/completions';
-    var resp=await fetch(url,{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+cfg.apiKey},body:JSON.stringify({model:cfg.model,messages:messages,stream:true}),signal:AbortSignal.timeout(60000)});
+    var _body={model:cfg.model,messages:messages,stream:true};if(cfg.provider==='zhipu'){_body._apiKey=cfg.apiKey}
+    var _headers={'Content-Type':'application/json'};if(cfg.provider!=='zhipu'){_headers['Authorization']='Bearer '+cfg.apiKey}
+    var resp=await fetch(url,{method:'POST',headers:_headers,body:JSON.stringify(_body),signal:AbortSignal.timeout(60000)});
     if(!resp.ok){var err=await resp.text().catch(function(){return ''});throw new Error('API错误 '+resp.status+': '+(err||resp.statusText))}
     setTyping(false);
     var botDiv=appendAiMsg('bot','');
